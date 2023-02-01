@@ -33,6 +33,10 @@ const DecisionTree = {
 			if(data.max) input.max = data.max 
 			element.appendChild(input)
 		}
+		else if(data.type === "text") {
+			let input = document.createElement("input")
+			element.appendChild(input)
+		}
 		return element
 	},
 	//builds Select HTML element with available answers
