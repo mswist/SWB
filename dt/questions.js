@@ -584,7 +584,7 @@ const flow = {
         }],
         "next": [{
             "condition": dtu.solarPanels,
-            "question": ["certified_panels"]
+            "questions": ["certified_panels"]
         }],
         "decline": [
             {
@@ -624,7 +624,7 @@ const flow = {
     }]},
     "accepted_provider": {
         "accept":[{
-            "condition":"No"
+            "condition":"Yes"
         }],
         "decline": [
             {
