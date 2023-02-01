@@ -13,7 +13,7 @@ const DTUtils = {
 	},
 	solarPanels: (value, neg) => {
 		if(neg && value == "No") return true 
-		else return (document.forms["actionForm"].elements["property_flat"]?.value == "No" && value == "Yes")
+		else return (!document.forms["actionForm"].elements["property_flat"]?.value == "Yes" && value == "Yes")
 	}
 }
 
