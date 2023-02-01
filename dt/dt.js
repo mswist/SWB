@@ -47,7 +47,7 @@ const DecisionTree = {
 	},
 	validateCondition: (condition, value, neg = false) => {
 		if(typeof condition === "function") {
-			return neg?(!condition(value)):(condition(value))
+			return neg?(!condition(value, neg)):(condition(value))
 		}
 		else if (Array.isArray(condition)) {
 			return condition.includes(value)
@@ -91,9 +91,9 @@ form.addEventListener("change", (e) => {
 	let accept_action = flow[e.target?.parentElement?.dataset?.question]?.accept
 	if(accept_action) {        
 		accept_action.forEach(accept => {
-			if(dt.validateCondition(accept.condition, e.target.value, true)) {
+			if(dt.validateCondition(accept.condition, e.target.value)) {
 				let p_accept = a_template.content.cloneNode(true);
-				form.appendChild(p_decline)                    
+				form.appendChild(p_accept)                    
 			}
 		}) 
 	}
