@@ -51,7 +51,7 @@ const DTquestions = {
         "label": "Is it more than 4 stories high? ",
         "type": Boolean
     },
-    "7_storeis": {
+    "7_stories": {
         "label": "Is it more than 7 stories high? ",
         "type": Boolean
     },
