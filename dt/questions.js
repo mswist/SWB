@@ -402,7 +402,7 @@ const flow = {
         "next": [
         {
             "condition": dtu.true,
-            "questions": ["thatched_roof"]
+            "questions": ["septic_tank"]
         }
     ]},
     "septic_tank": {
