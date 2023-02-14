@@ -66,6 +66,10 @@ input,
 select {
 	font-size: 12px;
 }
+select {
+    padding: 2px 1px;
+    min-width: 154px;  	
+}
 .dl-wrapper,
 .inline-field-wrapper,
 .element-wrapper,
