@@ -7,7 +7,7 @@ async function getDirectoriesFromGit(url) {
 
 function listDirectories(gitContent) {
   const directories = gitContent.filter(el => el.type == "dir")
-  directories.forEach(dir => displayDirElement)
+  directories.forEach(dir => { displayDirElement(dir) })
 }
 
 function displayDirElement(dir) {
@@ -18,4 +18,4 @@ function displayDirElement(dir) {
 }
 
 getDirectoriesFromGit(GIT_URL)
-  .then(resp => listDirectories(resp))
+  .then(resp => { listDirectories(resp) })
