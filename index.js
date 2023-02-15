@@ -3,7 +3,7 @@ async function getDirectoriesFromGit(url) {
   return response.json();
 }
 
-listDirectories(gitContent) {
+function listDirectories(gitContent) {
   const directories = gitContent.filter(el => el.type == "dir")
   directories.forEach(dir => displayDirElement)
 }
