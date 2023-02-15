@@ -1,3 +1,5 @@
+const GIT_URL = "https://api.github.com/repos/mswist/SWB/contents"
+
 async function getDirectoriesFromGit(url) {
   const response = await fetch(url);
   return response.json();
@@ -15,6 +17,5 @@ function displayDirElement(dir) {
   document.body.insertAdjacentElement("afterbegin", href)
 }
 
-
-getDirectoriesFromGit("https://api.github.com/repos/mswist/SWB/contents")
+getDirectoriesFromGit(GIT_URL)
   .then(resp => listDirectories(resp))
