@@ -1,0 +1,593 @@
+/*
+ * JavaScript Utilities
+ *
+ * This .js file contains various utility functions.
+ */
+function addLoadEvent(func) {
+	var oldonload = window.onload;
+	if (typeof window.onload != 'function') {
+		window.onload = func;
+	} else {
+		window.onload = function() {
+	  		oldonload();
+	  		func();
+		}
+	}
+}
+
+function addUnloadEvent(func) {
+	var handler = window.onbeforeunload;
+	if (typeof window.onbeforeunload != 'function') {
+		window.onbeforeunload = func;
+	} else {
+		window.onbeforeunload = function() {
+	  		handler();
+	  		func();
+		};
+	}
+}
+
+function removeUnloadEvents() {
+	window.onbeforeunload = null;
+}
+
+function showElement(elem) {
+	if (elem) {
+		elem.style.display = "block";
+	}
+}
+
+function hideElement(elem) {
+	if (elem) {
+		elem.style.display = "none";
+	}
+}
+
+/**
+ * Function to popUp a URL in a new window.
+ */
+function pop(loc, width, height, toolbar) {
+	var windowWidth = 450;
+	var windowHeight = 400;
+	var windowToolbar = "no";
+	if (width != null || width != "") {
+		windowWidth = width;
+	}
+	if (height != null || height != "") {
+		windowHeight = height;
+	}
+	if (toolbar) {
+		windowToolbar = "yes";
+	}		
+	var winTop = (screen.height / 2) - (windowHeight / 2);
+	var winLeft = (screen.width / 2) - (windowWidth / 2);
+	var windowOptions = "resizable=yes,toolbar=" + windowToolbar + ",scrollbars=yes,location=no,directories=no,status=no,menubar=no,width=" + windowWidth + ",height=" + windowHeight + ",left=" + winLeft + ",top=" + winTop + ",screenX=" + winLeft + ",screenY=" + winTop;
+	popWindow = this.open(loc, "popWindow", windowOptions);
+}
+
+function getElementUsingId(id) {
+	return (document.getElementById) ? document.getElementById(id) : ((document.all) ? document.all[id] : null);
+}
+
+/**
+ * Given form and field name strings, returns element reference.
+ * For radio button fields, fldName should be passed in with radio button index (fldName[1]).
+ */
+function getElement(formName, fldName) {
+	if (formName.length > 0 && fldName.length > 0 ) {
+		var formLength = document.forms.length;
+		var fieldElementIndex = null;
+		var fieldSearchIndex = 0;
+		var fldNameIndex = "";
+		// Check if fldName has an index
+		var beginIndex = fldName.lastIndexOf('[');
+		if (beginIndex >= 0) {
+			var endIndex = fldName.lastIndexOf(']');
+			// If end bracket is the last character in the name, this is a radio button.
+			if (endIndex == (fldName.length - 1)) {
+				fieldElementIndex = fldName.substring(beginIndex + 1, endIndex);
+				fldNameIndex = fldName.substring(0, beginIndex);
+			}
+		}
+		for (var formIndex = 0; formIndex < formLength; ++formIndex) {
+			if (document.forms[formIndex].name == formName) {
+				var formElementLength = document.forms[formIndex].elements.length;
+				for (var formElementIndex = 0; formElementIndex < formElementLength; ++formElementIndex) {
+					if (document.forms[formIndex].elements[formElementIndex].name == fldName || document.forms[formIndex].elements[formElementIndex].name == fldNameIndex) {
+						if (document.forms[formIndex].elements[formElementIndex].type == 'radio' && fieldElementIndex != null) {
+							if (fieldElementIndex == fieldSearchIndex) {
+								return document.forms[formIndex].elements[formElementIndex];
+							} else {
+								++fieldSearchIndex;
+							}
+						} else {
+							return document.forms[formIndex].elements[formElementIndex];
+						}
+					}
+				}
+			}
+		}
+	}
+	return null;
+}
+
+/*
+ * Returns the value of the selected radio button
+ */
+function getRadioElementValue(formName, fldName) {
+	for (var formIndex = 0; formIndex < document.forms.length; ++formIndex) {
+		if (document.forms[formIndex].name == formName) {
+			for (var formElementIndex = 0; formElementIndex < document.forms[formIndex].elements.length; ++formElementIndex) {
+				if (document.forms[formIndex].elements[formElementIndex].name == fldName && document.forms[formIndex].elements[formElementIndex].type == "radio" && document.forms[formIndex].elements[formElementIndex].checked) {
+					return document.forms[formIndex].elements[formElementIndex].value;
+				}
+			}
+		}
+	}
+	return null;
+}
+
+/**
+ * Given form, clears out all values of elements within the form.
+ */
+function clearForm(frm) {
+	for (var formElementIndex = 0; formElementIndex < frm.elements.length; ++formElementIndex) {
+		var elementType = frm.elements[formElementIndex].type;
+		var elem = frm.elements[formElementIndex];
+		switch (elementType) {
+			case 'button':
+				break;
+			case 'checkbox':
+				if (elem.defaultChecked) {
+					elem.checked = true;
+				} else {
+					elem.checked = false;
+				}
+				break;
+			case 'hidden':
+				break;
+			case 'radio':
+				break;
+			case 'reset':
+				break;
+			case 'select-one':
+				elem.selectedIndex = 0;
+			case 'submit':
+				break;
+			default : //file, password, select-multiple, text, textarea
+				elem.value = "";
+				break;
+		}
+	}
+}
+
+/**
+ * LTrim(string) - Returns a copy of a string without leading spaces.
+ */
+function LTrim(str) {
+	// We don't want to trim JUST spaces, but also tabs, line feeds, etc.
+	var whitespace = new String(" \t\n\r");
+	var s = new String(str);
+	if (whitespace.indexOf(s.charAt(0)) != -1) {
+		// We have a string with leading blank(s)
+		var j=0, i = s.length;
+		// Iterate from the far left of string until we don't have any more whitespace
+		while (j < i && whitespace.indexOf(s.charAt(j)) != -1) {
+			j++;
+		}
+		// Get the substring from the first non-whitespace character to the end of the string
+		s = s.substring(j, i);
+	}
+	return s;
+}
+
+/**
+ * RTrim(string) - Returns a copy of a string without trailing spaces.
+ */
+function RTrim(str) {
+	// We don't want to trim JUST spaces, but also tabs, line feeds, etc.
+	var whitespace = new String(" \t\n\r");
+	var s = new String(str);
+	if (whitespace.indexOf(s.charAt(s.length-1)) != -1) {
+  // We have a string with trailing blank(s)
+  var i = s.length - 1;
+		// Iterate from the far right of string until we don't have any more whitespace
+		while (i >= 0 && whitespace.indexOf(s.charAt(i)) != -1) {
+			i--;
+		}
+		// Get the substring from the front of the string to where the last non-whitespace character is...
+		s = s.substring(0, i+1);
+	}
+	return s;
+}
+
+/**
+ * Trim(string) - Returns a copy of a string without leading or trailing spaces
+ */
+function Trim(str) {
+	return RTrim(LTrim(str));
+}
+
+/**
+ * Enable/Disable fields
+ *
+ * PARAMETERS:
+ *		- formName (string): Name of form that contains the fields to enable/disable.
+ *		- fieldArray (array): Array of field names to enable/disable.
+ *		- disable (boolean): Determines whether to enable or disable the elements in the array.
+ *		- clearValues (boolean): Determines whether to clear the values when disabling.
+ */
+function enableDisableFields(formName, fieldArray, disable, clearValues) {
+	for (var i = 0; i < fieldArray.length; i++) {
+		fieldElement = (formName != null) ? getElement(formName, fieldArray[i]) : getElementUsingId(fieldArray[i]);
+		if (fieldElement != null) {
+			if (disable) {
+				if (clearValues) {
+					if (fieldElement.type == "select-one") {
+						fieldElement.selectedIndex = 0;
+					} else if (fieldElement.type == "checkbox" || fieldElement.type == "radio") {
+						fieldElement.checked = false;
+					} else {
+						fieldElement.value = "";
+					}
+				}
+				fieldElement.className = "disabled";
+			} else {
+				if (fieldElement.disabled) {
+					fieldElement.className = "enabled";
+				}
+			}
+			fieldElement.disabled = disable;
+		}
+	}
+}
+
+/**
+ * Auto-formatting function for tax id
+ */
+function formatSSN(ssnElement) {
+	var ssnString = Trim(ssnElement.value);
+	// Check to see if it is a corporate taxid before formatting
+	if (ssnString.length == 10 && ssnString.substr(2,1) == "-") {
+		return;
+	}
+	ssnString = ssnString.replace(/[^0-9]/g, '');
+	// If it is the correct size and does not contain characters, reformat
+	if (ssnString.length == 9) {
+		ssnElement.value = ssnString.substr(0,3) + "-" + ssnString.substr(3,2) + "-" + ssnString.substr(5,4);
+	}
+}
+
+/**
+ * Auto-formatting function for tax id
+ */
+function formatCorporateSSN(ssnElement) {
+	var ssnString = Trim(ssnElement.value);
+	// Check to see if it is a personal taxid before formatting
+	if (ssnString.length == 11 && ssnString.substr(3,1) == "-") {
+		return;
+	}
+	ssnString = ssnString.replace(/[^0-9]/g, '');
+	// If it is the correct size and does not contain characters, reformat
+	if (ssnString.length == 9) {
+		ssnElement.value = ssnString.substr(0, 2) + "-" + ssnString.substr(2);
+	}
+}
+
+/**
+ * Auto-formatting function for phone numbers
+ */
+function formatPhone(phoneElement) {
+	var phoneString = Trim(phoneElement.value);
+	phoneString = phoneString.replace(/[^0-9]/g, '');
+	// If it is the correct size and does not contain characters, reformat
+	if (phoneString.length == 10) {
+		phoneElement.value = phoneString.substr(0,3) + "-" + phoneString.substr(3,3) + "-" + phoneString.substr(6,4);
+	}
+}
+
+/**
+ * Auto-formatting function for dates
+ * - This function assumes entry of 4-digit year
+ */
+function formatDate(dateElement) {
+	var dateString = Trim(dateElement.value);
+	dateString = dateString.replace(/[^0-9]/g, '/');
+	var dateStringLength = dateString.length;
+	// If "/" does not exist in the string, add them
+	if (dateString.indexOf("/") < 0) {
+		if (dateStringLength == 6) {
+			// Assume mdyyyy
+			dateString = dateString.substr(0,1) + "/" + dateString.substr(1,1) + "/" + dateString.substr(2,4);		
+		} else if (dateStringLength == 8){
+			dateString = dateString.substr(0,2) + "/" + dateString.substr(2,2) + "/" + dateString.substr(4,4);						
+		} else {
+			// mmdyyyy or mddyyyy or non 4-digit year
+			return;
+		}
+	}
+	var dateElementArray = dateString.split("/");
+	if (dateElementArray.length == 3) {
+		var month = dateElementArray[0];
+		var day = dateElementArray[1];
+		var year = dateElementArray[2];
+		if (month.length < 3 && parseInt(month, 10) > 0 && day.length < 3 && parseInt(day, 10) > 0 && year.length == 4 && parseInt(year, 10) > 0) {
+			if (month.length == 1 && parseInt(month, 10) < 10) {
+				month = "0" + month;
+			}
+			if (day.length == 1 && parseInt(day, 10) < 10) {
+				day = "0" + day;
+			}
+			dateElement.value = month + "/" + day + "/" + year;
+		}
+	}
+}
+
+
+/**
+ * Auto-formatting function for dates
+ * - This function assumes entry of 4-digit year
+ */
+function formatMonthDay(dateElement) {
+	var dateString = Trim(dateElement.value);
+	dateString = dateString.replace(/[^0-9]/g, '/');
+	var dateStringLength = dateString.length;
+
+	// If "/" does not exist in the string, add them
+	if (dateString.indexOf("/") < 0) {
+		if (dateStringLength == 4) {
+			// Assume mdyyyy
+			dateString = dateString.substr(0,2) + "/" + dateString.substr(2,2);		
+		} else {
+			return;
+		}
+	}
+
+	var dateElementArray = dateString.split("/");
+	if (dateElementArray.length == 2) {
+		var month = dateElementArray[0];
+		var day = dateElementArray[1];
+		if (month.length < 3 && parseInt(month, 10) > 0 && day.length < 3 && parseInt(day, 10) > 0) {
+			if (month.length == 1 && parseInt(month, 10) < 10) {
+				month = "0" + month;
+			}
+			if (day.length == 1 && parseInt(day, 10) < 10) {
+				day = "0" + day;
+			}
+			dateElement.value = month + "/" + day;
+		}
+	}
+}
+
+/**
+ * Creates a method which returns an XMLHttpRequest object for AJAX calls.
+ */
+function getXmlHttp() {
+	var xmlHttp = null;
+	if (typeof(XMLHttpRequest) != "undefined") {
+	    xmlHttp = new XMLHttpRequest();
+	} else {
+	    try {
+	        xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
+	    } catch (e) {
+	        try {
+	            xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+	        } catch (E) {
+	        }
+	    }
+	}
+	return xmlHttp;
+}
+
+function qs() {
+	var qsParm = new Array();
+	var query = window.location.search.substring(1);
+	var parms = query.split('&');
+	for (var i=0; i<parms.length; i++) {
+		var pos = parms[i].indexOf('=');
+		if (pos > 0) {
+			var key = parms[i].substring(0,pos);
+			var val = parms[i].substring(pos+1);
+			qsParm[key] = val;
+		}
+	}
+	return qsParm;
+}
+
+function findPos(obj) {
+	var curleft = 0;
+	var curtop = 0;
+	if (obj.offsetParent) {
+		curleft = obj.offsetLeft + obj.offsetWidth;
+		curtop = obj.offsetTop;
+		while (obj = obj.offsetParent) {
+			curleft += obj.offsetLeft
+			curtop += obj.offsetTop
+		}
+	}
+	return [curleft,curtop];
+}
+
+function toCurrencyFormat(value, useSymbol) {
+	var symbol = true;
+	if (useSymbol != null && !useSymbol) {
+		symbol = false;
+	}
+	if (isNaN(value)) {
+		return null;
+	} else {
+		// Make sure we have 2 decimals
+		value = parseFloat(value).toFixed(2).toString();
+	}
+	var tempNumber = 0;
+	if(value>0) {
+		tempNumber = Math.floor(value).toString();
+	} else {
+		tempNumber = Math.ceil(value).toString();
+	}
+	var negative = false;
+	// Determine if it is a negative number
+	if (tempNumber.indexOf("-") != -1) {
+		negative = true;
+		tempNumber = tempNumber.substring(1);
+	}
+	
+	tempNumber = numberWithCommas(tempNumber);
+	
+	// Handle decimals
+	tempNumber = tempNumber + value.substring(value.length - 3);
+	// Determine if it is a negative number
+	if (negative) {
+		if (symbol) {
+			return "-&pound;" + tempNumber;
+		} else {
+			return "-" + tempNumber;
+		}
+	}
+	if (symbol) {
+		return "&pound;" + tempNumber;
+	}
+	return tempNumber;
+}
+
+function numberWithCommas(x) {
+    var parts = x.toString().split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return parts.join(".");
+}
+
+function findBottomLeftPos(obj) {
+	var curleft = 0;
+	var curtop = 0;
+	if (obj.offsetParent) {
+		curleft = obj.offsetLeft;
+		curtop = obj.offsetTop + obj.offsetHeight;
+		while (obj = obj.offsetParent) {
+			curleft += obj.offsetLeft
+			curtop += obj.offsetTop
+		}
+	}
+	return [curleft,curtop];
+}
+
+function showHide(elem, display) {
+	var inputArray = document.getElementById(elem) != null ? document.getElementById(elem).getElementsByTagName("input") : "";
+	var selectArray = document.getElementById(elem) != null ? document.getElementById(elem).getElementsByTagName("select") : "";
+	for (var i = 0; i < inputArray.length; ++i) {
+		inputArray[i].disabled = !display;
+	}
+	for (var j = 0; j < selectArray.length; ++j) {
+		selectArray[j].disabled = !display;
+	}
+	document.getElementById(elem) != null ? (document.getElementById(elem).style.display = (display) ? "block" : "none") :"";
+}
+function showHideElem(elem, display) {
+	var inputArray = elem.getElementsByTagName("input");
+	var selectArray = elem.getElementsByTagName("select");
+	for (var i = 0; i < inputArray.length; ++i) {
+		if(!display) {
+			inputArray[i].value = 0;
+		}
+	}
+	for (var j = 0; j < selectArray.length; ++j) {
+		selectArray[j].disabled = !display;
+	}
+	elem.style.display = (display) ? "" : "none";
+}
+
+function unescapeSpecialCharacters(text) {
+	text = text.replace(/&amp;/g, "&");
+	text = text.replace(/&#039;/g, "'");
+	return text;
+}
+
+function isIE() {return (navigator.userAgent.match(/MSIE/) ? true : false);}
+function makeFormReadOnly(id) {
+	var form = document.getElementById(id);
+	for(var i=0; i < form.elements.length; i++) {
+		var elem = form.elements[i];
+                if(elem.getAttribute("type") && elem.getAttribute("type").toLowerCase() == "submit"){
+                    elem.setAttribute("title","Read only mode");
+                }else {
+                    elem.setAttribute("readOnly","true");
+                    if (isIE()){
+                            elem.setAttribute("onchange", function() {document.getElementById(id+"").reset()});
+                            elem.setAttribute("onclick", function() {document.getElementById(id+"").reset()});
+                    }else{
+                            elem.setAttribute("onChange","document.getElementById('"+id+"').reset()");
+                            elem.setAttribute("onclick","document.getElementById('"+id+"').reset()");
+                    }
+                    elem.setAttribute("style","background-color: #CCCCCC");
+                }
+	}
+}
+
+function monthsBetween(thisDate, thatDate) {
+	if (thisDate > thatDate) {
+		return monthsBetween(thatDate, thisDate);
+	}
+
+	var number = 0;
+	if (thatDate.getFullYear() > thisDate.getFullYear()) {
+		number = number + (thatDate.getFullYear() - thisDate.getFullYear() - 1) * 12;
+	} else {
+		return thatDate.getMonth() - thisDate.getMonth();
+	}
+
+	if (thatDate.getMonth() > thisDate.getMonth()) {
+		number = number + 12 + thatDate.getMonth() - thisDate.getMonth();
+	} else {
+		number = number + (12 - thisDate.getMonth()) + thatDate.getMonth();
+	}
+	return number;
+}
+
+function currencyFormat(amount, precision, decimalChar, thousandsChar) {
+	if (isNaN(amount)) return amount;
+	if(!precision) precision = 2;
+	if(!decimalChar) decimalChar = '.';
+	if(!thousandsChar) thousandsChar = ',';
+
+	var fixed = amount.toFixed(precision);
+	var nominal =  new String(fixed.split('.')[0]);
+	var decimal =  new String(fixed.split('.')[1]);
+
+	var nominalFinal = new String("");
+	var j = 0;
+	for(var i = nominal.length-1; i >= 0; i--) {
+		if(j%3==0 && j>2)
+			nominalFinal = thousandsChar + nominalFinal;
+		nominalFinal = nominal.charAt(i) + nominalFinal;
+		j++;
+	}
+	return nominalFinal + decimalChar + decimal;
+}
+
+
+/**
+ * Walk the DOM, Douglas Crockford algorithm that recursively walks the node given.
+ */
+
+function walkTheDOM(node, func) {
+    func(node); 
+    node = node.firstChild; 
+    while (node) { 
+        walkTheDOM(node, func); 
+        node = node.nextSibling; 
+    }
+}
+
+function confirmDialog(title, message, success, close) {
+	$('<div></div>').appendTo('body')
+	.html('<div><p>'+message+'</p></div>')
+	.dialog({
+		modal: true, title: title, zIndex: 10000, autoOpen: true,
+	    buttons: {
+	    	Yes: success,
+	        No: close
+	        },
+	  	close: function (event, ui) {
+	    	$(this).remove();
+		}
+	});
+}

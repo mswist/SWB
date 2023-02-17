@@ -1,0 +1,107 @@
+/*
+ * Author: KPeters 05.07.2007
+ *
+ * This JavaScript code is used for displaying informational boxes.
+ *
+ * It looks for div id = "info-box". If it doesn't exist, 
+ * it is created.
+ *
+ * The call to show the info-box is toggleInformationBox(id). Where
+ * id is the message id in the user table.
+ *
+ * All references to the iFrame are a hack for IE6 to prevent the
+ * info-box from being displayed under select boxes
+ */
+
+var currentInfoId;
+var divElement = null;
+var iFrameElement = null;
+var infoTimeout;
+function setInformationBoxElements() {
+	divElement = getElementUsingId("info-box");
+	// If divElement does not exist, create it
+	if (!divElement) {
+			var newDiv = document.createElement('div');
+			newDiv.setAttribute('id', 'info-box');
+			document.body.appendChild(newDiv);
+			divElement = newDiv;
+	}
+	// IE hack - create an iframe element to display under the info-box to hide select boxes
+	if (document.all) {
+		iFrameElement = document.all["info-box-iframe"];
+		if (!iFrameElement) {
+			var newIFrame = document.createElement('iframe');
+			newIFrame.setAttribute('id', 'info-box-iframe');
+			newIFrame.setAttribute('frameborder', '0');
+			newIFrame.setAttribute('scrolling', 'no');
+			document.body.appendChild(newIFrame);
+			iFrameElement = newIFrame;
+		}
+	}
+}
+
+function showInformationBox(infoImageId, text) {
+	var infoId = infoImageId.substr(5, infoImageId.length);
+	var imageElement = getElementUsingId(infoImageId);
+	setInformationBoxElements();
+	if (divElement) {
+		if (divElement.style.display == "block") {
+			hideInformationBox();
+			if (currentInfoId != infoId) {
+				showInformationBox(infoImageId, text);
+			}
+			return;
+		} else {
+			var coordArray = findPos(imageElement);
+			if (text != null && Trim(text).length > 0) {
+				renderInformationBox(coordArray[0] + "px", coordArray[1] + "px", text, true);
+				currentInfoId = infoId;
+			} else {
+				var xmlhttp = getXmlHttp();
+				var url = "utility.do?method=getInformationText&id=" + infoId;
+				xmlhttp.onreadystatechange = function() {
+					if (xmlhttp.readyState == 4) {
+						if (xmlhttp.status == 200) {
+							renderInformationBox(coordArray[0] + "px", coordArray[1] + "px", xmlhttp.responseText, true);
+							currentInfoId = infoId;
+						}
+					}
+				};
+				xmlhttp.open("GET", url, true);
+				xmlhttp.setRequestHeader('Content-Type', 'text/plain');
+				xmlhttp.send(null);
+			}
+		}
+	}
+}
+
+function renderInformationBox(coordLeft, coordTop, content, timeOut) {
+	if (divElement.style.display == "block") {
+		hideInformationBox();
+	}
+	divElement.style.left = coordLeft;
+	divElement.style.top = coordTop;
+	divElement.innerHTML = "<span>" + content + "</span>";
+	divElement.style.display = "block";
+	if (iFrameElement) {
+		iFrameElement.style.left = coordLeft;
+		iFrameElement.style.top = coordTop;
+		iFrameElement.style.width = divElement.offsetWidth;
+		iFrameElement.style.height = divElement.offsetHeight;
+		iFrameElement.style.display = "block";
+	}
+	if (timeOut) {
+		infoTimeout = setTimeout("hideInformationBox()", 10000);
+	}
+}
+
+// Hide info box and kill timeout
+function hideInformationBox() {
+	if (divElement) {
+		if (iFrameElement) {
+			iFrameElement.style.display = "none";
+		}
+		divElement.style.display = "none";
+	}
+	clearTimeout(infoTimeout);
+}
