@@ -353,7 +353,7 @@
 </script>
 
 
-<form name="actionForm" id="flowForm">
+<form name="actionForm" id="flowForm" method="post" action="#">
 	<input type="hidden" name="_flowExecutionKey" value="_c80C07B96-3F3E-05F2-F494-2C6D32EC6DA7_k41B0834C-4D88-528A-6D4F-A403D4BAF505">
 	<input type="hidden" id="method" name="temp" value="">
 	<input type="hidden" name="offerOption" id="offerOption" value="false">
@@ -455,10 +455,17 @@
 							
 							&nbsp;&nbsp;&nbsp;30/06/2020
 			</div>			
-		
+
+			<div class="element-wrapper">
+				<label>Valuation to use for LTV:</label>
+				&nbsp;&nbsp;&nbsp;<select name="valuationSelected" onchange="calculateLTV(this.form.name)"><option value="0" selected="selected">Use Existing Valuation</option>
+					<option value="1">Use Halifax Valuation</option>
+					
+					<option value="2">New Valuation</option></select>	
+			</div>			
 		
 			<div class="element-wrapper">
-				<label>What percentage of the current property value do you want to protect (Ring Fence)&nbsp;<span class="ast">*</span>:</label>
+				<label>Ring Fence Percentage:&nbsp;<span class="ast">*</span>:</label>
 				
 					
 						&nbsp;&nbsp;&nbsp;<input type="text" name="protectedPropValuePerc" maxlength="2" size="5" value="0.00" onblur="calculateLTV(this.form.name)">&nbsp;%
@@ -472,13 +479,11 @@
 							£&nbsp;&nbsp;0.00
 			</div>
 
-			<div class="element-wrapper">
-				<label>Valuation to use for LTV:</label>
-				&nbsp;&nbsp;&nbsp;<select name="valuationSelected" onchange="calculateLTV(this.form.name)"><option value="0" selected="selected">Use Existing Valuation</option>
-					<option value="1">Use Halifax Valuation</option>
-					
-					<option value="2">New Valuation</option></select>	
+			<div class="element-wrapper" id="existingLoan">
+				<label>Property value to be used for LTV:&nbsp;<span class="ast">*</span>:</label>
+							£&nbsp;&nbsp;500,000.00
 			</div>
+
 			<div class="element-wrapper" id="existingLoan">
 				<label>Existing Loan Value&nbsp;<span class="ast">*</span>:</label>
 							£&nbsp;&nbsp;250,999.00
@@ -512,7 +517,7 @@
 				<label>Loan to Value Requested&nbsp;<span class="ast">*</span>:</label>
 				
 					
-						<input type="text" name="ltv" class="inputNoBorderSmall" readonly="true" size="10" tabindex="-1" value="">
+						<input type="text" name="ltv" class="inputNoBorderSmall" readonly="true" size="10" tabindex="-1" value="&nbsp;&nbsp;50.20%">
 					
 					
 				
