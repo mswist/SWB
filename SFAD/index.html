@@ -458,10 +458,10 @@
 
 			<div class="element-wrapper">
 				<label>Valuation to use for LTV:</label>
-				&nbsp;&nbsp;&nbsp;<select name="valuationSelected" onchange="calculateLTV(this.form.name)"><option value="0" selected="selected">Use Existing Valuation</option>
+				&nbsp;&nbsp;&nbsp;<select name="valuationSelected" onchange="calculateLTV(this.form.name)"><option value="0" selected="selected">Use Customer Valuation</option>
 					<option value="1">Use Halifax Valuation</option>
 					
-					<option value="2">New Valuation</option></select>	
+	
 			</div>			
 		
 			<div class="element-wrapper">
@@ -514,7 +514,7 @@
 			
 			<div class="element-wrapper">
 				<img src="./MortgageDetailsSrc/info_sm.gif" id="info-100000010020" class="info-image" alt="Click for Further Information" onclick="showInformationBox(this.id);">
-				<label>Loan to Value Requested&nbsp;<span class="ast">*</span>:</label>
+				<label>Resulting LTV after FADV&nbsp;<span class="ast">*</span>:</label>
 				
 					
 						<input type="text" name="ltv" class="inputNoBorderSmall" readonly="true" size="10" tabindex="-1" value="&nbsp;&nbsp;50.20%">
