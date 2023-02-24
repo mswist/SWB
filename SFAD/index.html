@@ -1,733 +1,520 @@
 <html lang="en">
-<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>
-		
-		Scottish Widows Bank&nbsp;
-		WebCSR
-		&nbsp;-&nbsp;Mortgage Details
-		&nbsp;-&nbsp;[User ID:&nbsp;1&nbsp;-&nbsp;Branch:&nbsp;Back Office]
-	</title>
-	<link rel="stylesheet" type="text/css" href="./MortgageDetailsSrc/scottishwidowsbank.css">
-	<link rel="stylesheet" type="text/css" href="./MortgageDetailsSrc/styles.css">
-	<script type="text/javascript" src="./MortgageDetailsSrc/utilities.js.download"></script>
-	<script type="text/javascript" src="./MortgageDetailsSrc/information.js.download"></script>
-	
-	<link rel="stylesheet" type="text/css" href="./MortgageDetailsSrc/jquery-ui.structure.min.css">
-	<link rel="stylesheet" type="text/css" href="./MortgageDetailsSrc/jquery-ui.theme.min.css">
 
-	<script type="text/javascript" src="./MortgageDetailsSrc/jquery.js.download"></script>
-	<script type="text/javascript" src="./MortgageDetailsSrc/jquery-ui.min.js.download"></script>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>
+
+        Scottish Widows Bank&nbsp;
+        WebCSR
+        &nbsp;-&nbsp;Mortgage Details
+        &nbsp;-&nbsp;[User ID:&nbsp;1&nbsp;-&nbsp;Branch:&nbsp;Back Office]
+    </title>
+    <link rel="stylesheet" type="text/css" href="./MortgageDetailsSrc/scottishwidowsbank.css">
+    <link rel="stylesheet" type="text/css" href="./MortgageDetailsSrc/styles.css">
+    <script type="text/javascript" src="./MortgageDetailsSrc/utilities.js.download"></script>
+    <script type="text/javascript" src="./MortgageDetailsSrc/information.js.download"></script>
+
+    <link rel="stylesheet" type="text/css" href="./MortgageDetailsSrc/jquery-ui.structure.min.css">
+    <link rel="stylesheet" type="text/css" href="./MortgageDetailsSrc/jquery-ui.theme.min.css">
+
+    <script type="text/javascript" src="./MortgageDetailsSrc/jquery.js.download"></script>
+    <script type="text/javascript" src="./MortgageDetailsSrc/jquery-ui.min.js.download"></script>
 </head>
 
 <body>
-	<div id="container">
-		<div id="container-inner">
-			
+    <div id="container">
+        <div id="container-inner">
+            <div class="site-header">
+                <div class="sw-site-logo"><img src="./MortgageDetailsSrc/logo_bank.gif"
+                        alt="Scottish Widows Bank: preparation is everything" border="0" height="59" width="189"></div>
+                <div class="header-search-area">
+                    <div class="float-right">&nbsp;</div>
+                    <div class="clear-both"></div>
+                    <div class="search-ribbon"><img src="./MortgageDetailsSrc/ribbon_large.gif" alt="" height="48"
+                            width="303"></div>
+                </div>
+            </div>
+            <div class="clearer"></div>
+            <div id="head" class="clearfix">&nbsp;</div>
+            <div id="content">
+                <div class="leftcolumn">
+                    <script src="./MortgageDetailsSrc/menu.js.download" type="text/javascript"></script>
+                    <script src="./MortgageDetailsSrc/lockMonitoring.js.download" type="text/javascript"></script>
+                    <script language="JavaScript">
+                        <!--
+                        addLoadEvent(monitorForms);
+                        addLoadEvent(monitorLinks);
+                        addUnloadEvent(conditionallyReleaseAgentLock);
+                        timeOutControl();
 
+                        function timeOutControl() {
+                            setTimeout("timeOut()", (3600 - 60) * 1000);
+                        }
 
+                        function timeOut() {
+                            var windowWidth = 300;
+                            var windowHeight = 200;
+                            var x = (screen.width - windowWidth) / 2;
+                            var y = (screen.height - windowHeight) / 2;
+                            windowOptions =
+                                "toolbar=no,location=no,directories=no,status=no,menubar=no,resizable=yes,scrollbars=no,copyhistory=yes,width=" +
+                                windowWidth + ",height=" + windowHeight + ",screenX=" + x + ",screenY=" + y + ",left=" +
+                                x + ",top=" + y;
+                            timeOutWindow = this.open("", "timeOutWindow", windowOptions);
+                            timeOutWindow.document.open();
+                            htmlBuffer = '<html>';
+                            htmlBuffer +=
+                                '<head><title>Time-out Warning</title><link rel="stylesheet" type="text/css" href="resources/css/popUp.css"></head>';
+                            htmlBuffer +=
+                                '<body><p>You will automatically be logged out in 1 minutes if there is no further activity.</p>';
+                            htmlBuffer += '<form name="timeOutForm" method="post" action="timeOut.do">';
+                            htmlBuffer += '<div class="submit-wrapper" align="center">';
+                            htmlBuffer +=
+                                '<input type="submit" class="button1" value="Continue" name="continue" onClick="window.opener.timeOutControl();">&nbsp;&nbsp;';
+                            htmlBuffer +=
+                                '<input type="button" class="button2" value="Exit" name="exit" onClick="window.opener.location=' +
+                                "'logoff.do'" + '; window.close()";>';
+                            htmlBuffer += '</form></body></html>';
+                            timeOutWindow.document.write(htmlBuffer);
+                            timeOutWindow.document.close();
+                            timeOutWindow.focus();
+                        }
 
-<div class="site-header">
-  <div class="sw-site-logo"><img src="./MortgageDetailsSrc/logo_bank.gif" alt="Scottish Widows Bank: preparation is everything" border="0" height="59" width="189"></div>
-  <div class="header-search-area">
-    <div class="float-right">&nbsp;</div>
-    <div class="clear-both"></div>
-    <div class="search-ribbon"><img src="./MortgageDetailsSrc/ribbon_large.gif" alt="" height="48" width="303"></div>
-  </div>
-</div>
-<div class="clearer"></div>
-<div id="head" class="clearfix">&nbsp;</div>
-			<div id="content">
-				
-					<div class="leftcolumn">
+                        // 
+                        -->
+                    </script>
+                    <div class="secure-side-nav">
+                        <div class="menu-heading" style="padding-bottom:4px;"><a href="#">Log Out</a></div>
+                        <div class="menu-heading">IFA Management</div>
+                        <ul>
+                            <!-- li><a href="app/registration" >New IFA</a></li-->
+                            <li><a href="#" name="monitored">New IFA</a></li>
+                            <li><a href="#" name="monitored">IFA Information</a></li>
+                            <li><a href="#" name="monitored">New 3rd Party</a></li>
+                            <li><a href="#" name="monitored">3rd Party Information</a></li>
+                            <li><a href="#" name="monitored">IFA Mortgage Entry Search</a></li>
+                        </ul>
+                        <div class="menu-heading">Illustrations</div>
+                        <ul>
+                            <li><a href="#" name="monitored">Illustration Search</a></li>
+                            <li><a href="#" name="monitored">Advised Illustration Search</a></li>
+                            <li><a href="#" name="monitored" class="menu-selected">New Illustration</a></li>
+                        </ul>
+                        <div class="menu-heading">Deposit Applications</div>
+                        <ul>
+                            <li><a href="#" name="monitored">Deposit Application Search</a></li>
+                            <li><a href="#" name="monitored">Personal Deposit Application</a></li>
+                            <li><a href="#" name="monitored">Non-Personal Deposit Application</a></li>
+                        </ul>
+                        <div class="menu-heading">Mortgage Applications</div>
+                        <ul>
+                            <li><a href="#" name="monitored">Mortgage Application Search</a></li>
+                        </ul>
+                        <div class="menu-heading">Case Management</div>
+                        <ul>
+                            <li><a href="#" name="monitored">Available Cases</a></li>
+                            <li><a href="#" name="monitored">Case Search</a></li>
+                        </ul>
+                        <div class="menu-heading">Admin Assistant Management</div>
+                        <ul>
+                            <li><a href="#">Add Admin Assistant</a></li>
+                            <li><a href="#">Remove Admin Assistant</a></li>
+                            <li><a href="#">Admin Assistant Information</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="centralrightcolumn">
+                    <h1><!-- --></h1>
+                    <br>
+                    <h1><span id="header-title" style="position:absolute;">Mortgage Details</span></h1>
+                    <br><br><br>
+                    <script type="text/javascript" src="./MortgageDetailsSrc/utilities.js.download"></script>
+                    <script type="text/javascript">
+                        addLoadEvent(initialize);
 
+                        function initialize() {
+                            calculateLTV("actionForm");
+                            toggleTermMonths("");
+                            toggleField("commissionPassedToClient", "false");
+                            toggleField("feeChargedToClient", "false");
+                            prafSetting("actionForm")
+                        }
 
+                        function toggleField(id, value) {
+                            var fieldElem = getElementUsingId(id);
+                            if (fieldElem && value == "true") {
+                                enableDisableFields("actionForm", new Array(id), false, false);
+                                showElement(fieldElem);
+                            } else {
+                                hideElement(fieldElem);
+                                enableDisableFields("actionForm", new Array(id), true, true);
+                            }
+                        }
 
+                        function calculateLTV(frm) {
+                            var ltv = null
+                            var amountRequested = calculateAmountRequested(frm);
+                            var propertyValue = calculatePropertyValue(frm);
 
+                            if (propertyValue > 0 && amountRequested > 0) {
+                                ltv = amountRequested / propertyValue;
+                                ltv = ltv * 10000;
+                                ltv = ltv / 100;
+                                ltv = ltv.toFixed(2);
+                                //ltv = Math.ceil(ltv);
+                                if (getElement(frm, "ltv") != null) {
+                                    getElement(frm, "ltv").value = ltv + "%";
+                                } else {
+                                    getElementUsingId("ltv_t").innerHTML = ltv + "%";
+                                }
+                            } else {
+                                if (getElement(frm, "ltv") != null) {
+                                    getElement(frm, "ltv").value = "";
+                                } else {
+                                    getElementUsingId("ltv_t").innerHTML = "";
+                                }
+                            }
+                            return;
+                        }
 
-<script src="./MortgageDetailsSrc/menu.js.download" type="text/javascript"></script>
-<script src="./MortgageDetailsSrc/lockMonitoring.js.download" type="text/javascript"></script>
-<script language="JavaScript">
-	<!--
-	addLoadEvent(monitorForms);
-	addLoadEvent(monitorLinks);
-	addUnloadEvent(conditionallyReleaseAgentLock);
-	timeOutControl();
-	function timeOutControl() {
-		setTimeout("timeOut()",(3600 - 60) * 1000);
-	}
+                        function calculateAmountRequested(frm) {
+                            var requestedLoanAmount = parseFloat('');
+                            if (getElement(frm, "requestedLoanAmount") != null)
+                                requestedLoanAmount = parseFloat(getElement(frm, "requestedLoanAmount").value.replace(
+                                    /,/g, ''));
+                            if (isNaN(requestedLoanAmount)) requestedLoanAmount = 0;
 
-	function timeOut() {
-		var windowWidth = 300;
-		var windowHeight = 200;
-		var x = (screen.width - windowWidth) / 2 ;
-		var y = (screen.height - windowHeight) / 2;
-		windowOptions = "toolbar=no,location=no,directories=no,status=no,menubar=no,resizable=yes,scrollbars=no,copyhistory=yes,width=" + windowWidth + ",height=" + windowHeight + ",screenX=" + x + ",screenY=" + y + ",left=" + x + ",top=" + y;
-		timeOutWindow = this.open("","timeOutWindow",windowOptions);
-		timeOutWindow.document.open();
-		htmlBuffer  = '<html>';
-		htmlBuffer += '<head><title>Time-out Warning</title><link rel="stylesheet" type="text/css" href="resources/css/popUp.css"></head>';
-		htmlBuffer += '<body><p>You will automatically be logged out in 1 minutes if there is no further activity.</p>';
-		htmlBuffer += '<form name="timeOutForm" method="post" action="timeOut.do">';
-		htmlBuffer += '<div class="submit-wrapper" align="center">';
-		htmlBuffer += '<input type="submit" class="button1" value="Continue" name="continue" onClick="window.opener.timeOutControl();">&nbsp;&nbsp;';
-		htmlBuffer += '<input type="button" class="button2" value="Exit" name="exit" onClick="window.opener.location=' + "'logoff.do'" + '; window.close()";>';
-		htmlBuffer += '</form></body></html>';
-		timeOutWindow.document.write(htmlBuffer);
-		timeOutWindow.document.close();
-		timeOutWindow.focus();
-	}
+                            var futureRelease = parseFloat('');
+                            if (getElement(frm, "futureRelease") != null)
+                                futureRelease = parseFloat(getElement(frm, "futureRelease").value.replace(/,/g, ''));
+                            if (isNaN(futureRelease)) futureRelease = 0;
 
-	// -->
-</script>
+                            getElement(frm, "amountRequested").value = requestedLoanAmount;
 
+                            var totalAmountRequested = requestedLoanAmount + futureRelease;
 
+                            if (getElementUsingId("totalBorrowingAmount") != null) {
+                                getElementUsingId("totalBorrowingAmount").innerHTML = toCurrencyFormat(
+                                    totalAmountRequested);
+                            } else {
+                                getElementUsingId("totalBorrowingAmount_t").innerHTML = toCurrencyFormat(
+                                    totalAmountRequested);
+                            }
 
-<div class="secure-side-nav">
-	<div class="menu-heading" style="padding-bottom:4px;"><a href="#">Log Out</a></div>
+                            return totalAmountRequested;
+                        }
 
-	
-		<div class="menu-heading">IFA Management</div>
-		<ul>
+                        function calculatePropertyValue(frm) {
+                            let propertyValue = parseFloat('');
+                            let indicativePRAF = document.getElementById('indicativePRAF') ? .value || 0;
+                            if (getElement(frm, "propertyValue") != null)
+                                propertyValue = parseFloat(getElement(frm, "propertyValue").value.replace(/,/g, ''));
+                            if (isNaN(propertyValue)) propertyValue = 0;
 
+                            var protectedPropValuePercentage = parseInt('0.0');
+                            if (getElement(frm, "protectedPropValuePerc") != null)
+                                protectedPropValuePercentage = parseInt(getElement(frm, "protectedPropValuePerc").value
+                                    .replace(/,/g, ''));
+                            if (isNaN(protectedPropValuePercentage)) protectedPropValuePercentage = 0;
 
-			<!-- li><a href="app/registration" >New IFA</a></li-->
-			
-			<li><a href="#" name="monitored">New IFA</a></li>
-			
+                            var availablePropertyValueLTV = propertyValue - (propertyValue * (
+                                protectedPropValuePercentage / 100));
 
-			
-				<li><a href="#" name="monitored">IFA Information</a></li>
-			
+                            if (getElementUsingId("availablePropertyValueLTV") != null) {
+                                getElementUsingId("availablePropertyValueLTV").innerHTML = toCurrencyFormat(
+                                    availablePropertyValueLTV - availablePropertyValueLTV * (indicativePRAF / 100));
+                                getElementUsingId("availablePropertyBeforePRAFCut").innerHTML = toCurrencyFormat(
+                                    availablePropertyValueLTV);
+                            } else {
+                                getElementUsingId("availablePropertyValueLTV_t").innerHTML = toCurrencyFormat(
+                                    availablePropertyValueLTV - availablePropertyValueLTV * (indicativePRAF / 100));
+                            }
 
-			
-				<li><a href="#" name="monitored">New 3rd Party</a></li>
-			
+                            return availablePropertyValueLTV;
+                        }
 
+                        function toggleTermMonths(value) {
+                            var disable = false;
+                            if (value == 66) {
+                                disable = true;
+                            }
+                            enableDisableFields("actionForm", new Array("termMonths"), disable, true);
+                        }
 
-			
-				<li><a href="#" name="monitored">3rd Party Information</a></li>
-			
+                        function prafSetting(frm) {
+                            var ageRestricted = document.getElementById('isPropertyAgeRestricted').checked;
+                            var leasehold = document.getElementById('isPropertyLeasehold').checked;
 
-			
-				<li><a href="#" name="monitored">IFA Mortgage Entry Search</a></li>
-			
-		</ul>
-	
-	
-		<div class="menu-heading">Illustrations</div>
-		<ul>
-			
-				<li><a href="#" name="monitored">Illustration Search</a></li>
-				<li><a href="#" name="monitored">Advised Illustration Search</a></li>
-			
-			
-				<li><a href="#" name="monitored" class="menu-selected">New Illustration</a></li>
-			
-		</ul>
-	
+                            if (ageRestricted && leasehold) {
+                                getPrafValue(frm, 'Age Restricted Property');
+                            } else if (ageRestricted && !leasehold) {
+                                getPrafValue(frm, 'Age Restricted Property');
+                            } else if (!ageRestricted && leasehold) {
+                                getPrafValue(frm, 'Leasehold flats');
+                            } else {
+                                getPrafValue(frm, 'None');
+                            }
+                        }
 
-	
-		<div class="menu-heading">Deposit Applications</div>
-		<ul>
-			
-				<li><a href="#" name="monitored">Deposit Application Search</a></li>
-			
-			
-				<li><a href="#" name="monitored">Personal Deposit Application</a></li>
-			
-				
-				<li><a href="#" name="monitored">Non-Personal Deposit Application</a></li>
-				
-		</ul>
-	
-	
-		<div class="menu-heading">Mortgage Applications</div>
-		<ul>
-			
-				<li><a href="#" name="monitored">Mortgage Application Search</a></li>
-			
-		</ul>
-	
-	
-		<div class="menu-heading">Case Management</div>
-		<ul>
-			
-				<li><a href="#" name="monitored">Available Cases</a></li>
-			
-			
-				<li><a href="#" name="monitored">Case Search</a></li>
-			
-		</ul>
-	
-	
-		<div class="menu-heading">Admin Assistant Management</div>
-		<ul>
-			
-				<li><a href="#">Add Admin Assistant</a></li>
-			
-			
-				<li><a href="#">Remove Admin Assistant</a></li>
-			
-			
-				<li><a href="#">Admin Assistant Information</a></li>
-			
-	</ul>
-	
-	
-</div></div>
-					<div class="centralrightcolumn">
-							<h1>
-							<!-- 
-	  								-->
-							</h1>
-							<br>
-							<h1><span id="header-title" style="position:absolute;">Mortgage Details</span></h1>
-							<br><br><br>
+                        function getPrafValue(frm, praf) {
+                            var xmlhttp = getXmlHttp();
+                            var url = "utility.do?method=getPraf&prafDesc=" + praf;
+                            xmlhttp.onreadystatechange = function () {
+                                if (xmlhttp.readyState == 4) {
+                                    if (xmlhttp.status == 200) {
+                                        console.log("indicative PRAF = " + xmlhttp.responseText);
+                                        getElement(frm, "indicativePRAF_t").value = xmlhttp.responseText + "%";
+                                        getElement(frm, "indicativePRAF").value = xmlhttp.responseText;
+                                        calculateLTV(frm);
+                                    }
+                                }
+                            };
+                            xmlhttp.open("GET", url, true);
+                            xmlhttp.setRequestHeader('Content-Type', 'text/plain');
+                            xmlhttp.send(null);
+                        }
+                    </script>
 
-<script type="text/javascript" src="./MortgageDetailsSrc/utilities.js.download"></script>
-<script type="text/javascript">
-	addLoadEvent(initialize);
-	
-	function initialize() {
-		calculateLTV("actionForm");
-		toggleTermMonths("");
-		toggleField("commissionPassedToClient", "false");
-		toggleField("feeChargedToClient", "false");	
-		prafSetting("actionForm")
-	}
-
-	function toggleField(id, value) {
-		var fieldElem = getElementUsingId(id);
-		if (fieldElem && value == "true") {
-			enableDisableFields("actionForm", new Array(id), false, false);
-			showElement(fieldElem);
-		} else {
-			hideElement(fieldElem);
-			enableDisableFields("actionForm", new Array(id), true, true);
-		}
-	}
-	
-	function calculateLTV(frm) {
-		var ltv = null
-		var amountRequested = calculateAmountRequested(frm);
-		var propertyValue = calculatePropertyValue(frm);
-
-		if (propertyValue > 0 && amountRequested > 0) {
-			ltv = amountRequested / propertyValue;
-			ltv = ltv * 10000;
-			ltv = ltv / 100;
-			ltv = ltv.toFixed(2); 
-			//ltv = Math.ceil(ltv);
-			if (getElement(frm, "ltv") != null) {
-				getElement(frm, "ltv").value = ltv + "%";
-			} else {
-				getElementUsingId("ltv_t").innerHTML=ltv + "%";
-			}
-		} else {
-			if (getElement(frm, "ltv") != null) {
-				getElement(frm, "ltv").value = "";
-			} else {
-				getElementUsingId("ltv_t").innerHTML="";
-			}
-		}
-		return;
-	}
-
-	function calculateAmountRequested(frm) {
-		var requestedLoanAmount = parseFloat('');
-		if (getElement(frm, "requestedLoanAmount") != null)
-			requestedLoanAmount = parseFloat(getElement(frm, "requestedLoanAmount").value.replace(/,/g, ''));
-		if (isNaN(requestedLoanAmount)) requestedLoanAmount = 0;
-
-		var futureRelease = parseFloat('');
-		if (getElement(frm, "futureRelease") != null)
-			futureRelease = parseFloat(getElement(frm, "futureRelease").value.replace(/,/g, ''));
-		if (isNaN(futureRelease)) futureRelease = 0;
-
-		getElement(frm, "amountRequested").value = requestedLoanAmount;
-		
-		var totalAmountRequested = requestedLoanAmount + futureRelease;
-
-		if (getElementUsingId("totalBorrowingAmount") != null) {
-			getElementUsingId("totalBorrowingAmount").innerHTML = toCurrencyFormat(totalAmountRequested);
-		} else {
-			getElementUsingId("totalBorrowingAmount_t").innerHTML = toCurrencyFormat(totalAmountRequested);
-		}
-
-		return totalAmountRequested;
-	}
-
-	function calculatePropertyValue(frm) {
-		let propertyValue = parseFloat('');
-		let indicativePRAF = document.getElementById('indicativePRAF')?.value || 0;
-		if (getElement(frm, "propertyValue") != null)
-			propertyValue = parseFloat(getElement(frm, "propertyValue").value.replace(/,/g, ''));
-		if (isNaN(propertyValue)) propertyValue = 0;
-
-		var protectedPropValuePercentage = parseInt('0.0');
-		if (getElement(frm, "protectedPropValuePerc") != null)
-			protectedPropValuePercentage = parseInt(getElement(frm, "protectedPropValuePerc").value.replace(/,/g, ''));
-		if (isNaN(protectedPropValuePercentage)) protectedPropValuePercentage = 0;
-
-		var availablePropertyValueLTV = propertyValue - (propertyValue * (protectedPropValuePercentage / 100));
-
-		if (getElementUsingId("availablePropertyValueLTV") != null) {
-			getElementUsingId("availablePropertyValueLTV").innerHTML = toCurrencyFormat(availablePropertyValueLTV - availablePropertyValueLTV*(indicativePRAF/100));
-			getElementUsingId("availablePropertyBeforePRAFCut").innerHTML = toCurrencyFormat(availablePropertyValueLTV);
-		} else {
-			getElementUsingId("availablePropertyValueLTV_t").innerHTML = toCurrencyFormat(availablePropertyValueLTV - availablePropertyValueLTV*(indicativePRAF/100));
-		}
-		
-		return availablePropertyValueLTV;
-	}
-
-	function toggleTermMonths(value) {
-		var disable = false;
-		if (value == 66) {
-			disable = true;
-		}
-		enableDisableFields("actionForm", new Array("termMonths"), disable, true);
-	}
-	
-	function prafSetting(frm){
-		var ageRestricted = document.getElementById('isPropertyAgeRestricted').checked;
-		var leasehold = document.getElementById('isPropertyLeasehold').checked;
-        
-		if(ageRestricted && leasehold){
-			getPrafValue(frm,'Age Restricted Property');
-		}else if(ageRestricted && !leasehold){
-			getPrafValue(frm,'Age Restricted Property');
-		}else if(!ageRestricted && leasehold){
-			getPrafValue(frm,'Leasehold flats');
-		}else{
-			getPrafValue(frm,'None');
-		}
-	}
-	
-	function getPrafValue(frm, praf) {
-		var xmlhttp = getXmlHttp();
-		var url = "utility.do?method=getPraf&prafDesc=" + praf;
-			xmlhttp.onreadystatechange = function() {
-				if (xmlhttp.readyState == 4) {
-					if (xmlhttp.status == 200) {
-						console.log("indicative PRAF = "+xmlhttp.responseText);
-						getElement(frm, "indicativePRAF_t").value=xmlhttp.responseText+"%";
-						getElement(frm, "indicativePRAF").value=xmlhttp.responseText;
-						calculateLTV(frm);
-					}
-				}
-			};
-		xmlhttp.open("GET", url, true);
-		xmlhttp.setRequestHeader('Content-Type', 'text/plain');
-		xmlhttp.send(null);
-	}
-</script>
-
-
-<form name="actionForm" id="flowForm" method="post" action="#">
-	<input type="hidden" name="_flowExecutionKey" value="_c80C07B96-3F3E-05F2-F494-2C6D32EC6DA7_k41B0834C-4D88-528A-6D4F-A403D4BAF505">
-	<input type="hidden" id="method" name="temp" value="">
-	<input type="hidden" name="offerOption" id="offerOption" value="false">
-	
-	<input type="hidden" name="amountRequested" value="0" id="amountRequested">
-	
-		
-		<h4>Broker details</h4>
-		<div class="clear-both"></div>
-		
-			
-			
-			<div class="radio-wrapper">
-				<div class="label">
-					
-						
-						Do you have client consent to share their personal data with SWB?&nbsp;<span class="ast">*</span>:
-					
-				</div>
-				<input type="radio" name="ifaClientDPN" value="true">
-				<label>Yes</label>
-				<input type="radio" name="ifaClientDPN" value="false" checked="checked">
-				<label>No</label>
-			</div>
-		
-		
-			
-			
-			<div class="radio-wrapper">
-				<div class="label">Have you recommended the mortgage to your client(s)?&nbsp;<span class="ast">*</span>:</div>
-				<input type="radio" name="recommended" value="true">
-				<label>Yes</label>
-				<input type="radio" name="recommended" value="false" checked="checked">
-				<label>No</label>
-			</div>
-		
-			
-		
-			
-			
-			
-			<div class="radio-wrapper">
-				<div class="label">Will you be passing any of your commission on to your client(s)&nbsp;<span class="ast">*</span>:</div>
-				<input type="radio" name="passingCommissionToClient" value="true" onclick="toggleField(&#39;commissionPassedToClient&#39;, this.value);">
-				<label>Yes</label>
-				<input type="radio" name="passingCommissionToClient" value="false" checked="checked" onclick="toggleField(&#39;commissionPassedToClient&#39;, this.value);">
-				<label>No</label>
-			</div>
-			
-				
-					<div class="element-wrapper" id="commissionPassedToClient" style="display: none;">
-	               		 <label>Commission passed on to client&nbsp;<span class="ast">*</span>:</label>
-	                 		 £&nbsp;<input type="text" name="commissionPassedToClient" maxlength="11" size="11" value="" class="disabled" disabled="">
-	       		 	</div>
-				
-				
-			
-			
-				
-				
-				
-				<div class="radio-wrapper">
-					<div class="label">Are you to charge your client(s) a fee?&nbsp;<span class="ast">*</span>:</div>
-					<input type="radio" name="chargingFeeToClient" value="true" onclick="toggleField(&#39;feeChargedToClient&#39;, this.value);">
-					<label>Yes</label>
-					<input type="radio" name="chargingFeeToClient" value="false" checked="checked" onclick="toggleField(&#39;feeChargedToClient&#39;, this.value);">
-					<label>No</label>
-				</div>
-				
-					
-						<div class="element-wrapper" id="feeChargedToClient" style="display: none;">
-		               	 	<label>Fee charged to client&nbsp;<span class="ast">*</span>:</label>
-		                 	 	£&nbsp;<input type="text" name="feeChargedToClient" maxlength="11" size="11" value="" class="disabled" disabled="">
-		           		</div>
-		
-		<div class="clear-both"></div>
-		<h4>Mortgage Details</h4>
-		<div class="clear-both"></div>
-		
-			<div class="element-wrapper">
-				<label>Estimated value of property&nbsp;<span class="ast">*</span>:</label>
-				
-					
-						£&nbsp;<input type="text" name="propertyValue" maxlength="18" size="18" value="500000" onblur="calculateLTV(this.form.name)">
-					
-					
-					
-			</div>
-			<div class="element-wrapper">
-				<label>Latest Valuation Date:</label>
-				&nbsp;&nbsp;&nbsp;08/10/2020	
-			</div>
-			<div class="element-wrapper">
-				<label>Current Halifax Index Value&nbsp;<span class="ast">*</span>:</label>
-							£ 500,000.00
-			</div>
-			<div class="element-wrapper">
-				<label>Current Halifax Valuation Date:</label>
-							
-							&nbsp;&nbsp;&nbsp;30/06/2020
-			</div>			
-
-			<div class="element-wrapper">
-				<label>Valuation to use for LTV:</label>
-				&nbsp;&nbsp;&nbsp;<select name="valuationSelected" onchange="calculateLTV(this.form.name)"><option value="0" selected="selected">Use Customer Valuation</option>
-					<option value="1">Use Halifax Valuation</option>
-				</select>
-					
-	
-			</div>			
-		
-			<div class="element-wrapper">
-				<label>Ring Fence Percentage:&nbsp;<span class="ast">*</span>:</label>
-				
-					
-						&nbsp;&nbsp;&nbsp;<input type="text" name="protectedPropValuePerc" maxlength="2" size="5" value="0.00" onblur="calculateLTV(this.form.name)">&nbsp;%
-					
-					
-					
-			</div>			
-
-			<div class="element-wrapper" id="existingLoan">
-				<label>Ring fenced amount:&nbsp;<span class="ast">*</span>:</label>
-							£&nbsp;&nbsp;0.00
-			</div>
-
-			<div class="element-wrapper" id="existingLoan">
-				<label>Property value to be used for LTV:&nbsp;<span class="ast">*</span>:</label>
-							£&nbsp;&nbsp;500,000.00
-			</div>
-
-			<div class="element-wrapper" id="existingLoan">
-				<label>Existing Loan Value&nbsp;<span class="ast">*</span>:</label>
-							£&nbsp;&nbsp;250,999.00
-			</div>
-			<div class="element-wrapper" id="existingLoan">
-				<label>Resulting LTV Before FADV &nbsp;<span class="ast">*</span>:</label>
-							£&nbsp;&nbsp;50.20%
-			</div>	
-
-			<div class="element-wrapper">
-				<label>Unused Future Release&nbsp;<span class="ast">*</span>:</label>
-							£&nbsp;&nbsp;0.00
-			</div>
-			
-			<div class="element-wrapper">
-				<img src="./MortgageDetailsSrc/info_sm.gif" id="info-100000010010" class="info-image" alt="Click for Further Information" onclick="showInformationBox(this.id);">
-				<label>Borrowing Amount Required&nbsp;<span class="ast">*</span>:</label>
-					
-						
-							£&nbsp;<input type="text" name="requestedLoanAmount" maxlength="18" size="18" value="" onchange="fieldValueChanged()" onblur="calculateLTV(this.form.name)">
-						
-						
-					
-			</div>
-			
-			<div class="element-wrapper">
-				<label>Total Borrowing Amount:</label>		
-					
-							&nbsp;&nbsp;<span id="totalBorrowingAmount" style="font-weight:normal;">£250,999.00</span>	
-					
-			</div>
-			
-			<div class="element-wrapper">
-				<img src="./MortgageDetailsSrc/info_sm.gif" id="info-100000010020" class="info-image" alt="Click for Further Information" onclick="showInformationBox(this.id);">
-				<label>Resulting LTV after FADV&nbsp;<span class="ast">*</span>:</label>
-				
-					
-						<input type="text" name="ltv" class="inputNoBorderSmall" readonly="true" size="10" tabindex="-1" value="&nbsp;&nbsp;50.20%">
-					
-					
-				
-			</div>
-				
-		<div class="element-wrapper">
-			<label>Default Term&nbsp;:</label>
-			<input type="text" name="defaultTerm" class="inputNoBorderSmall" value="23" readonly="true" size="1" style="text-align: center;" tabindex="-1">
-			<span>Year(s)</span>
-		</div>
-		
-			<div class="element-wrapper">
-				<label>Custom Term&nbsp;:</label>
-						&nbsp;&nbsp;&nbsp;<select name="termYears" onchange="toggleTermMonths(this.value);"><option value=""></option>
-							
-								<option value="66">66</option>
-							
-								<option value="65">65</option>
-							
-								<option value="64">64</option>
-							
-								<option value="63">63</option>
-							
-								<option value="62">62</option>
-							
-								<option value="61">61</option>
-							
-								<option value="60">60</option>
-							
-								<option value="59">59</option>
-							
-								<option value="58">58</option>
-							
-								<option value="57">57</option>
-							
-								<option value="56">56</option>
-							
-								<option value="55">55</option>
-							
-								<option value="54">54</option>
-							
-								<option value="53">53</option>
-							
-								<option value="52">52</option>
-							
-								<option value="51">51</option>
-							
-								<option value="50">50</option>
-							
-								<option value="49">49</option>
-							
-								<option value="48">48</option>
-							
-								<option value="47">47</option>
-							
-								<option value="46">46</option>
-							
-								<option value="45">45</option>
-							
-								<option value="44">44</option>
-							
-								<option value="43">43</option>
-							
-								<option value="42">42</option>
-							
-								<option value="41">41</option>
-							
-								<option value="40">40</option>
-							
-								<option value="39">39</option>
-							
-								<option value="38">38</option>
-							
-								<option value="37">37</option>
-							
-								<option value="36">36</option>
-							
-								<option value="35">35</option>
-							
-								<option value="34">34</option>
-							
-								<option value="33">33</option>
-							
-								<option value="32">32</option>
-							
-								<option value="31">31</option>
-							
-								<option value="30">30</option>
-							
-								<option value="29">29</option>
-							
-								<option value="28">28</option>
-							
-								<option value="27">27</option>
-							
-								<option value="26">26</option>
-							
-								<option value="25">25</option>
-							
-								<option value="24">24</option>
-							
-								<option value="23">23</option>
-							
-								<option value="22">22</option>
-							
-								<option value="21">21</option>
-							
-								<option value="20">20</option>
-							
-								<option value="19">19</option>
-							
-								<option value="18">18</option>
-							
-								<option value="17">17</option>
-							
-								<option value="16">16</option>
-							
-								<option value="15">15</option></select>
-					
-					
-				 
-				<span>Year(s)</span>
-				
-					
-						<select name="termMonths"><option value=""></option>
-							
-								<option value="11">11</option>
-							
-								<option value="10">10</option>
-							
-								<option value="9">9</option>
-							
-								<option value="8">8</option>
-							
-								<option value="7">7</option>
-							
-								<option value="6">6</option>
-							
-								<option value="5">5</option>
-							
-								<option value="4">4</option>
-							
-								<option value="3">3</option>
-							
-								<option value="2">2</option>
-							
-								<option value="1">1</option></select>
-					
-					
-				
-				<span>Month(s)</span>
-			</div>		
-		
-			
-			
-				
-				
-				<div class="element-wrapper">
-					<label>Temporary Rates</label>
-					<img src="./MortgageDetailsSrc/info_sm.gif" id="info-100000010060" class="info-image" alt="Click for Further Information" onclick="showInformationBox(this.id);">
-					<input type="hidden" name="_temporaryRates">
-					&nbsp;&nbsp;<input type="checkbox" name="temporaryRates" value="true">
-				</div>
-			
-			
-				<div class="element-wrapper">
-					<img src="./MortgageDetailsSrc/info_sm.gif" id="info-100000010050" class="info-image" alt="Click for Further Information" onclick="showInformationBox(this.id);">
-					<label>Mortgage Rate Type&nbsp;<span class="ast">*</span>:</label>
-					
-						
-							&nbsp;&nbsp;&nbsp;<select name="mortgageRateType"><option value="0">All Rates</option>
-								<option value="1">Fixed Rates</option>
-								<option value="2">Variable Rates</option></select>
-						
-						
-					
-				</div>
-			
-		
-		
-		<div class="clear-both"></div>
-		<div class="submit-wrapper3">
-			
-			
-				
-					
-					
-				
-				
-			
-			
-				<div class="submit"><input type="submit" name="_eventId_submit" value="Next"></div>
-			
-		    
-			
-				
-					
-					
-				
-				
-			
-			
-				<div class="back"><input type="submit" name="_eventId_back" value="Back"></div>
-			
-			
-			
-				
-					
-					
-				
-				
-			
-			
-				<div class="cancel"><input type="submit" name="_eventId_cancel" value="Exit"></div>
-			
-			<div class="clearer"></div>
-		</div>
-	
-</form>
-
-
-
-				
-					</div>
-				
-			</div>
-			
-
-
-
-<div id="footer"><h2 id="footer-header"><span class="cursor">&nbsp;</span></h2></div>
-
-<div id="copyright"><p>Copyright © 2023 Scottish Widows</p></div> 
-		</div>
-	</div>
-
-</body></html>
+                    <form name="actionForm" id="flowForm" method="post" action="#">
+                        <input type="hidden" name="_flowExecutionKey"
+                            value="_c80C07B96-3F3E-05F2-F494-2C6D32EC6DA7_k41B0834C-4D88-528A-6D4F-A403D4BAF505">
+                        <input type="hidden" id="method" name="temp" value="">
+                        <input type="hidden" name="offerOption" id="offerOption" value="false">
+                        <input type="hidden" name="amountRequested" value="0" id="amountRequested">
+                        <h4>Broker details</h4>
+                        <div class="clear-both"></div>
+                        <div class="radio-wrapper">
+                            <div class="label">
+                                Do you have client consent to share their personal data with SWB?&nbsp;<span
+                                    class="ast">*</span>:
+                            </div>
+                            <input type="radio" name="ifaClientDPN" value="true">
+                            <label>Yes</label>
+                            <input type="radio" name="ifaClientDPN" value="false" checked="checked">
+                            <label>No</label>
+                        </div>
+                        <div class="radio-wrapper">
+                            <div class="label">Have you recommended the mortgage to your client(s)?&nbsp;<span
+                                    class="ast">*</span>:</div>
+                            <input type="radio" name="recommended" value="true">
+                            <label>Yes</label>
+                            <input type="radio" name="recommended" value="false" checked="checked">
+                            <label>No</label>
+                        </div>
+                        <div class="radio-wrapper">
+                            <div class="label">Will you be passing any of your commission on to your
+                                client(s)&nbsp;<span class="ast">*</span>:</div>
+                            <input type="radio" name="passingCommissionToClient" value="true"
+                                onclick="toggleField(&#39;commissionPassedToClient&#39;, this.value);">
+                            <label>Yes</label>
+                            <input type="radio" name="passingCommissionToClient" value="false" checked="checked"
+                                onclick="toggleField(&#39;commissionPassedToClient&#39;, this.value);">
+                            <label>No</label>
+                        </div>
+                        <div class="element-wrapper" id="commissionPassedToClient" style="display: none;">
+                            <label>Commission passed on to client&nbsp;<span class="ast">*</span>:</label>
+                            £&nbsp;<input type="text" name="commissionPassedToClient" maxlength="11" size="11" value=""
+                                class="disabled" disabled="">
+                        </div>
+                        <div class="radio-wrapper">
+                            <div class="label">Are you to charge your client(s) a fee?&nbsp;<span class="ast">*</span>:
+                            </div>
+                            <input type="radio" name="chargingFeeToClient" value="true"
+                                onclick="toggleField(&#39;feeChargedToClient&#39;, this.value);">
+                            <label>Yes</label>
+                            <input type="radio" name="chargingFeeToClient" value="false" checked="checked"
+                                onclick="toggleField(&#39;feeChargedToClient&#39;, this.value);">
+                            <label>No</label>
+                        </div>
+                        <div class="element-wrapper" id="feeChargedToClient" style="display: none;">
+                            <label>Fee charged to client&nbsp;<span class="ast">*</span>:</label>
+                            £&nbsp;<input type="text" name="feeChargedToClient" maxlength="11" size="11" value=""
+                                class="disabled" disabled="">
+                        </div>
+                        <div class="clear-both"></div>
+                        <h4>Mortgage Details</h4>
+                        <div class="clear-both"></div>
+                        <div class="element-wrapper">
+                            <label>Estimated value of property&nbsp;<span class="ast">*</span>:</label>
+                            £&nbsp;<input type="text" name="propertyValue" maxlength="18" size="18" value="500000"
+                                onblur="calculateLTV(this.form.name)">
+                        </div>
+                        <div class="element-wrapper">
+                            <label>Latest Valuation Date:</label>
+                            &nbsp;&nbsp;&nbsp;08/10/2020
+                        </div>
+                        <div class="element-wrapper">
+                            <label>Current Halifax Index Value&nbsp;<span class="ast">*</span>:</label>
+                            £ 500,000.00
+                        </div>
+                        <div class="element-wrapper">
+                            <label>Current Halifax Valuation Date:</label>
+                            &nbsp;&nbsp;&nbsp;30/06/2020
+                        </div>
+                        <div class="element-wrapper">
+                            <label>Valuation to use for LTV:</label>
+                            &nbsp;&nbsp;&nbsp;<select name="valuationSelected" onchange="calculateLTV(this.form.name)">
+                                <option value="0" selected="selected">Use Customer Valuation</option>
+                                <option value="1">Use Halifax Valuation</option>
+                            </select>
+                        </div>
+                        <div class="element-wrapper">
+                            <label>Ring Fence Percentage:&nbsp;<span class="ast">*</span>:</label>
+                            &nbsp;&nbsp;&nbsp;<input type="text" name="protectedPropValuePerc" maxlength="2" size="5"
+                                value="0.00" onblur="calculateLTV(this.form.name)">&nbsp;%
+                        </div>
+                        <div class="element-wrapper" id="existingLoan">
+                            <label>Ring fenced amount:&nbsp;<span class="ast">*</span>:</label>
+                            £&nbsp;&nbsp;0.00
+                        </div>
+                        <div class="element-wrapper" id="existingLoan">
+                            <label>Property value to be used for LTV:&nbsp;<span class="ast">*</span>:</label>
+                            £&nbsp;&nbsp;500,000.00
+                        </div>
+                        <div class="element-wrapper" id="existingLoan">
+                            <label>Existing Loan Value&nbsp;<span class="ast">*</span>:</label>
+                            £&nbsp;&nbsp;250,999.00
+                        </div>
+                        <div class="element-wrapper" id="existingLoan">
+                            <label>Resulting LTV Before FADV &nbsp;<span class="ast">*</span>:</label>
+                            £&nbsp;&nbsp;50.20%
+                        </div>
+                        <div class="element-wrapper">
+                            <label>Unused Future Release&nbsp;<span class="ast">*</span>:</label>
+                            £&nbsp;&nbsp;0.00
+                        </div>
+                        <div class="element-wrapper">
+                            <img src="./MortgageDetailsSrc/info_sm.gif" id="info-100000010010" class="info-image"
+                                alt="Click for Further Information" onclick="showInformationBox(this.id);">
+                            <label>Borrowing Amount Required&nbsp;<span class="ast">*</span>:</label>
+                            £&nbsp;<input type="text" name="requestedLoanAmount" maxlength="18" size="18" value=""
+                                onchange="fieldValueChanged()" onblur="calculateLTV(this.form.name)">
+                        </div>
+                        <div class="element-wrapper">
+                            <label>Total Borrowing Amount:</label>
+                            &nbsp;&nbsp;<span id="totalBorrowingAmount" style="font-weight:normal;">£250,999.00</span>
+                        </div>
+                        <div class="element-wrapper">
+                            <img src="./MortgageDetailsSrc/info_sm.gif" id="info-100000010020" class="info-image"
+                                alt="Click for Further Information" onclick="showInformationBox(this.id);">
+                            <label>Resulting LTV after FADV&nbsp;<span class="ast">*</span>:</label>
+                            <input type="text" name="ltv" class="inputNoBorderSmall" readonly="true" size="10"
+                                tabindex="-1" value="&nbsp;&nbsp;50.20%">
+                        </div>
+                        <div class="element-wrapper">
+                            <label>Default Term&nbsp;:</label>
+                            <input type="text" name="defaultTerm" class="inputNoBorderSmall" value="23" readonly="true"
+                                size="1" style="text-align: center;" tabindex="-1">
+                            <span>Year(s)</span>
+                        </div>
+                        <div class="element-wrapper">
+                            <label>Custom Term&nbsp;:</label>
+                            &nbsp;&nbsp;&nbsp;<select name="termYears" onchange="toggleTermMonths(this.value);">
+                                <option value=""></option>
+                                <option value="66">66</option>
+                                <option value="65">65</option>
+                                <option value="64">64</option>
+                                <option value="63">63</option>
+                                <option value="62">62</option>
+                                <option value="61">61</option>
+                                <option value="60">60</option>
+                                <option value="59">59</option>
+                                <option value="58">58</option>
+                                <option value="57">57</option>
+                                <option value="56">56</option>
+                                <option value="55">55</option>
+                                <option value="54">54</option>
+                                <option value="53">53</option>
+                                <option value="52">52</option>
+                                <option value="51">51</option>
+                                <option value="50">50</option>
+                                <option value="49">49</option>
+                                <option value="48">48</option>
+                                <option value="47">47</option>
+                                <option value="46">46</option>
+                                <option value="45">45</option>
+                                <option value="44">44</option>
+                                <option value="43">43</option>
+                                <option value="42">42</option>
+                                <option value="41">41</option>
+                                <option value="40">40</option>
+                                <option value="39">39</option>
+                                <option value="38">38</option>
+                                <option value="37">37</option>
+                                <option value="36">36</option>
+                                <option value="35">35</option>
+                                <option value="34">34</option>
+                                <option value="33">33</option>
+                                <option value="32">32</option>
+                                <option value="31">31</option>
+                                <option value="30">30</option>
+                                <option value="29">29</option>
+                                <option value="28">28</option>
+                                <option value="27">27</option>
+                                <option value="26">26</option>
+                                <option value="25">25</option>
+                                <option value="24">24</option>
+                                <option value="23">23</option>
+                                <option value="22">22</option>
+                                <option value="21">21</option>
+                                <option value="20">20</option>
+                                <option value="19">19</option>
+                                <option value="18">18</option>
+                                <option value="17">17</option>
+                                <option value="16">16</option>
+                                <option value="15">15</option>
+                            </select>
+                            <span>Year(s)</span>
+                            <select name="termMonths">
+                                <option value=""></option>
+                                <option value="11">11</option>
+                                <option value="10">10</option>
+                                <option value="9">9</option>
+                                <option value="8">8</option>
+                                <option value="7">7</option>
+                                <option value="6">6</option>
+                                <option value="5">5</option>
+                                <option value="4">4</option>
+                                <option value="3">3</option>
+                                <option value="2">2</option>
+                                <option value="1">1</option>
+                            </select>
+                            <span>Month(s)</span>
+                        </div>
+                        <div class="element-wrapper">
+                            <label>Temporary Rates</label>
+                            <img src="./MortgageDetailsSrc/info_sm.gif" id="info-100000010060" class="info-image"
+                                alt="Click for Further Information" onclick="showInformationBox(this.id);">
+                            <input type="hidden" name="_temporaryRates">
+                            &nbsp;&nbsp;<input type="checkbox" name="temporaryRates" value="true">
+                        </div>
+                        <div class="element-wrapper">
+                            <img src="./MortgageDetailsSrc/info_sm.gif" id="info-100000010050" class="info-image"
+                                alt="Click for Further Information" onclick="showInformationBox(this.id);">
+                            <label>Mortgage Rate Type&nbsp;<span class="ast">*</span>:</label>
+                            &nbsp;&nbsp;&nbsp;<select name="mortgageRateType">
+                                <option value="0">All Rates</option>
+                                <option value="1">Fixed Rates</option>
+                                <option value="2">Variable Rates</option>
+                            </select>
+                        </div>
+                        <div class="clear-both"></div>
+                        <div class="submit-wrapper3">
+                            <div class="submit"><input type="submit" name="_eventId_submit" value="Next"></div>
+                            <div class="back"><input type="submit" name="_eventId_back" value="Back"></div>
+                            <div class="cancel"><input type="submit" name="_eventId_cancel" value="Exit"></div>
+                            <div class="clearer"></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div id="footer">
+                <h2 id="footer-header"><span class="cursor">&nbsp;</span></h2>
+            </div>
+            <div id="copyright">
+                <p>Copyright © 2023 Scottish Widows</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
