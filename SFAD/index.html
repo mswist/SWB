@@ -153,41 +153,25 @@
 
                         function calculateLTV(frm) {
                             let ltv = null
-                            let currentLoan = calculateAmountRequested(frm, "current");
-                            let amountRequested = calculateAmountRequested(frm, "fad");
+                            let currentLoan = calculateAmountRequested(frm);
+                            let amountRequested = getElement(frm, "requestedLoanAmount").value
                             let propertyValue = calculatePropertyValue(frm);
 
-                            if (propertyValue > 0 && amountRequested > 0) {
-                                ltv = amountRequested / propertyValue;
-                                ltv = ltv * 10000;
-                                ltv = ltv / 100;
-                                ltv = ltv.toFixed(2);
-                                //ltv = Math.ceil(ltv);
-                                if (getElement(frm, "ltv") != null) {
-                                    getElement(frm, "ltv").value = ltv + "%";
-                                } else {
-                                    getElementUsingId("ltv_t").innerHTML = ltv + "%";
-                                }
-                            } else {
-                                if (getElement(frm, "ltv") != null) {
-                                    getElement(frm, "ltv").value = "";
-                                } else {
-                                    getElementUsingId("ltv_t").innerHTML = "";
-                                }
-                            }
+                            ltv_c = ((currentLoan / propertyValue) * 100).toFixed(2);
+                            ltv_r = ((currentLoan + amountRequested / propertyValue) * 100).toFixed(2);
+                            
+                            if (getElement(frm, "ltv") != null) getElement(frm, "ltv").value = ltv_c + "%";
+                            else getElementUsingId("ltv_t").innerHTML = ltv_c + "%";
+                            
+                            if (getElement(frm, "ltv_r") != null) getElement(frm, "ltv_r").value = ltv_r + "%";
+                            
                             return;
                         }
 
-                        function calculateAmountRequested(frm, type) {
+                        function calculateAmountRequested(frm) {
                             var requestedLoanAmount = parseFloat('');
-                            if(type == "fad") {
-                                if (getElement(frm, "requestedLoanAmount") != null)
-                                    requestedLoanAmount = parseFloat(getElement(frm, "requestedLoanAmount").value.replace(/,/g, ''));
-                            }
-                            else {
-                                if (getElement(frm, "currentLoanAmount") != null)
-                                    requestedLoanAmount = parseFloat(getElement(frm, "currentLoanAmount").value.replace(/,/g, ''));                                
-                            }
+                            if (getElement(frm, "currentLoanAmount") != null)
+                                requestedLoanAmount = parseFloat(getElement(frm, "currentLoanAmount").value.replace(/,/g, ''));                                
                             if (isNaN(requestedLoanAmount)) requestedLoanAmount = 0;
 
                             var futureRelease = parseFloat('');
@@ -396,7 +380,7 @@
                             <img src="./MortgageDetailsSrc/info_sm.gif" id="info-100000010020" class="info-image"
                                 alt="Click for Further Information" onclick="showInformationBox(this.id);">
                             <label>Resulting LTV after FADV&nbsp;<span class="ast">*</span>:</label>
-                            <input type="text" name="ltv" class="inputNoBorderSmall" readonly="true" size="10" tabindex="-1" value="">
+                            <input type="text" name="ltv_r" class="inputNoBorderSmall" readonly="true" size="10" tabindex="-1" value="">
                         </div>
                         <div class="element-wrapper">
                             <label>Default Term&nbsp;:</label>
