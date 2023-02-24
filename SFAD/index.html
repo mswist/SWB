@@ -213,18 +213,15 @@
 
                             var protectedPropValuePercentage = parseInt('0.0');
                             if (getElement(frm, "protectedPropValuePerc") != null)
-                                protectedPropValuePercentage = parseInt(getElement(frm, "protectedPropValuePerc").value
-                                    .replace(/,/g, ''));
+                                protectedPropValuePercentage = parseInt(getElement(frm, "protectedPropValuePerc").value.replace(/,/g, ''));
                             if (isNaN(protectedPropValuePercentage)) protectedPropValuePercentage = 0;
 
                             var availablePropertyValueLTV = propertyValue - (propertyValue * (
                                 protectedPropValuePercentage / 100));
 
                             if (getElementUsingId("availablePropertyValueLTV") != null) {
-                                getElementUsingId("availablePropertyValueLTV").innerHTML = toCurrencyFormat(
-                                    availablePropertyValueLTV - availablePropertyValueLTV * (indicativePRAF / 100));
-                                getElementUsingId("availablePropertyBeforePRAFCut").innerHTML = toCurrencyFormat(
-                                    availablePropertyValueLTV);
+                                getElementUsingId("availablePropertyValueLTV").innerHTML = toCurrencyFormat(availablePropertyValueLTV - availablePropertyValueLTV * (indicativePRAF / 100));
+                                getElementUsingId("availablePropertyBeforePRAFCut").innerHTML = toCurrencyFormat(availablePropertyValueLTV);
                             } else {
                                 getElementUsingId("availablePropertyValueLTV_t").innerHTML = toCurrencyFormat(
                                     availablePropertyValueLTV - availablePropertyValueLTV * (indicativePRAF / 100));
@@ -377,7 +374,7 @@
                         </div>
                         <div class="element-wrapper" id="existingLoan">
                             <label>Resulting LTV Before FADV &nbsp;<span class="ast">*</span>:</label>
-                            <input type="text" name="ltv" id="availablePropertyValueLTV" class="inputNoBorderSmall" readonly="true" size="10" tabindex="-1" value="">
+                            <input type="text" name="ltv" id="availablePropertyBeforePRAFCut" class="inputNoBorderSmall" readonly="true" size="10" tabindex="-1" value="">
                         </div>
                         <div class="element-wrapper">
                             <label>Unused Future Release&nbsp;<span class="ast">*</span>:</label>
@@ -398,8 +395,7 @@
                             <img src="./MortgageDetailsSrc/info_sm.gif" id="info-100000010020" class="info-image"
                                 alt="Click for Further Information" onclick="showInformationBox(this.id);">
                             <label>Resulting LTV after FADV&nbsp;<span class="ast">*</span>:</label>
-                            <input type="text" name="ltv" class="inputNoBorderSmall" readonly="true" size="10"
-                                tabindex="-1" value="&nbsp;&nbsp;50.20%">
+                            <input type="text" name="ltv" id="availablePropertyValueLTV" class="inputNoBorderSmall" readonly="true" size="10" tabindex="-1" value="">
                         </div>
                         <div class="element-wrapper">
                             <label>Default Term&nbsp;:</label>
