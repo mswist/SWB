@@ -152,9 +152,10 @@
                         }
 
                         function calculateLTV(frm) {
-                            var ltv = null
-                            var amountRequested = calculateAmountRequested(frm);
-                            var propertyValue = calculatePropertyValue(frm);
+                            let ltv = null
+                            let currentLoan = calculateAmountRequested(frm, "current");
+                            let amountRequested = calculateAmountRequested(frm, "fad");
+                            let propertyValue = calculatePropertyValue(frm);
 
                             if (propertyValue > 0 && amountRequested > 0) {
                                 ltv = amountRequested / propertyValue;
@@ -177,11 +178,16 @@
                             return;
                         }
 
-                        function calculateAmountRequested(frm) {
+                        function calculateAmountRequested(frm, type) {
                             var requestedLoanAmount = parseFloat('');
-                            if (getElement(frm, "requestedLoanAmount") != null)
-                                requestedLoanAmount = parseFloat(getElement(frm, "requestedLoanAmount").value.replace(
-                                    /,/g, ''));
+                            if(type == "fad") {
+                                if (getElement(frm, "requestedLoanAmount") != null)
+                                    requestedLoanAmount = parseFloat(getElement(frm, "requestedLoanAmount").value.replace(/,/g, ''));
+                            }
+                            else {
+                                if (getElement(frm, "currentLoanAmount") != null)
+                                    requestedLoanAmount = parseFloat(getElement(frm, "currentLoanAmount").value.replace(/,/g, ''));                                
+                            }
                             if (isNaN(requestedLoanAmount)) requestedLoanAmount = 0;
 
                             var futureRelease = parseFloat('');
@@ -194,11 +200,9 @@
                             var totalAmountRequested = requestedLoanAmount + futureRelease;
 
                             if (getElementUsingId("totalBorrowingAmount") != null) {
-                                getElementUsingId("totalBorrowingAmount").innerHTML = toCurrencyFormat(
-                                    totalAmountRequested);
+                                getElementUsingId("totalBorrowingAmount").innerHTML = toCurrencyFormat(totalAmountRequested);
                             } else {
-                                getElementUsingId("totalBorrowingAmount_t").innerHTML = toCurrencyFormat(
-                                    totalAmountRequested);
+                                getElementUsingId("totalBorrowingAmount_t").innerHTML = toCurrencyFormat(totalAmountRequested);
                             }
 
                             return totalAmountRequested;
@@ -368,7 +372,7 @@
                         </div>
                         <div class="element-wrapper" id="existingLoan">
                             <label>Existing Loan Value&nbsp;<span class="ast">*</span>:</label>
-                            £&nbsp;&nbsp;250,999.00
+                            £&nbsp;&nbsp;<span name="currentLoanAmount">250,999.00</span>
                         </div>
                         <div class="element-wrapper" id="existingLoan">
                             <label>Resulting LTV Before FADV &nbsp;<span class="ast">*</span>:</label>
