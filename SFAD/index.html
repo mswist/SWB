@@ -206,7 +206,7 @@
 
                         function calculatePropertyValue(frm) {
                             let propertyValue = parseFloat('');
-                            let indicativePRAF = document.getElementById('indicativePRAF') ? .value || 0;
+                            let indicativePRAF = document.getElementById('indicativePRAF')?.value || 0;
                             if (getElement(frm, "propertyValue") != null)
                                 propertyValue = parseFloat(getElement(frm, "propertyValue").value.replace(/,/g, ''));
                             if (isNaN(propertyValue)) propertyValue = 0;
