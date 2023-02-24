@@ -359,8 +359,7 @@
                         </div>
                         <div class="element-wrapper">
                             <label>Ring Fence Percentage:&nbsp;<span class="ast">*</span>:</label>
-                            &nbsp;&nbsp;&nbsp;<input type="text" name="protectedPropValuePerc" maxlength="2" size="5"
-                                value="0.00" onblur="calculateLTV(this.form.name)">&nbsp;%
+                            &nbsp;&nbsp;&nbsp;<input type="text" name="protectedPropValuePerc" maxlength="2" size="5" value="0.00" onblur="calculateLTV(this.form.name)">&nbsp;%
                         </div>
                         <div class="element-wrapper" id="existingLoan">
                             <label>Ring fenced amount:&nbsp;<span class="ast">*</span>:</label>
@@ -372,7 +371,7 @@
                         </div>
                         <div class="element-wrapper" id="existingLoan">
                             <label>Existing Loan Value&nbsp;<span class="ast">*</span>:</label>
-                            £&nbsp;&nbsp;<span name="currentLoanAmount">250,999.00</span>
+                            £&nbsp;&nbsp;<input type="text" name="currentLoanAmount" class="inputNoBorderSmall" readonly="true" size="10" tabindex="-1" value="250,999.00">
                         </div>
                         <div class="element-wrapper" id="existingLoan">
                             <label>Resulting LTV Before FADV &nbsp;<span class="ast">*</span>:</label>
