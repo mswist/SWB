@@ -180,8 +180,9 @@
                             if (isNaN(futureRelease)) futureRelease = 0;
 
                             getElement(frm, "amountRequested").value = requestedLoanAmount;
+                            let fadAmount = +(getElement(frm, "requestedLoanAmount").value)
 
-                            var totalAmountRequested = requestedLoanAmount + futureRelease;
+                            var totalAmountRequested = requestedLoanAmount + futureRelease + fadAmount;
 
                             if (getElementUsingId("totalBorrowingAmount") != null) {
                                 getElementUsingId("totalBorrowingAmount").innerHTML = toCurrencyFormat(totalAmountRequested);
@@ -379,7 +380,7 @@
                                 alt="Click for Further Information" onclick="showInformationBox(this.id);">
                             <label>Borrowing Amount Required&nbsp;<span class="ast">*</span>:</label>
                             £&nbsp;<input type="text" name="requestedLoanAmount" maxlength="18" size="18" value=""
-                                onchange="updateTotalBorrowingAmount()" onblur="calculateLTV(this.form.name)">
+                                onchange="" onblur="calculateLTV(this.form.name)">
                         </div>
                         <div class="element-wrapper">
                             <label>Total Borrowing Amount:</label>
