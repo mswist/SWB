@@ -190,7 +190,7 @@
                                 getElementUsingId("totalBorrowingAmount_t").innerHTML = toCurrencyFormat(totalAmountRequested);
                             }
 
-                            return totalAmountRequested;
+                            return totalAmountRequested - fadAmount;
                         }
 
                         function calculatePropertyValue(frm) {
