@@ -256,11 +256,12 @@
                             xmlhttp.setRequestHeader('Content-Type', 'text/plain');
                             xmlhttp.send(null);
                         }
-
-                        function updateTotalBorrowingAmount(e) {
-                            let frm = e.target.form
-                            let currentLoan = +getElement(frm, "amountRequested").value
-                            let requestedAmount = +e.target.value
+                        
+                        // @event implicitly provided
+                        function updateTotalBorrowingAmount() {
+                            let frm = event.target.form
+                            let currentLoan = +(getElement(frm, "requestedLoanAmount").value)
+                            let requestedAmount = +event.target.value
                             getElementUsingId("totalBorrowingAmount").innerHTML = toCurrencyFormat(currentLoan + requestedAmount);
                         }
 
