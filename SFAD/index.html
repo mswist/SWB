@@ -182,15 +182,15 @@
                             getElement(frm, "amountRequested").value = requestedLoanAmount;
                             let fadAmount = +(getElement(frm, "requestedLoanAmount").value)
 
-                            var totalAmountRequested = requestedLoanAmount + futureRelease + fadAmount;
+                            var totalAmountRequested = requestedLoanAmount + futureRelease;
 
                             if (getElementUsingId("totalBorrowingAmount") != null) {
-                                getElementUsingId("totalBorrowingAmount").innerHTML = toCurrencyFormat(totalAmountRequested);
+                                getElementUsingId("totalBorrowingAmount").innerHTML = toCurrencyFormat(totalAmountRequested + fadAmount);
                             } else {
                                 getElementUsingId("totalBorrowingAmount_t").innerHTML = toCurrencyFormat(totalAmountRequested);
                             }
 
-                            return totalAmountRequested - fadAmount;
+                            return totalAmountRequested;
                         }
 
                         function calculatePropertyValue(frm) {
