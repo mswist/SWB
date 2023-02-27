@@ -158,7 +158,7 @@
                             let propertyValue = calculatePropertyValue(frm);
 
                             ltv_c = ((currentLoan / propertyValue) * 100).toFixed(2);
-                            ltv_r = (((currentLoan + amountRequested) / propertyValue) * 100).toFixed(2);
+                            ltv_r = (((currentLoan + (+amountRequested)) / propertyValue) * 100).toFixed(2);
                             
                             if (getElement(frm, "ltv") != null) getElement(frm, "ltv").value = ltv_c + "%";
                             else getElementUsingId("ltv_t").innerHTML = ltv_c + "%";
@@ -256,6 +256,13 @@
                             xmlhttp.setRequestHeader('Content-Type', 'text/plain');
                             xmlhttp.send(null);
                         }
+
+                        function updateTotalBorrowingAmount(e) {
+                            let currentLoan = +getElement(frm, "amountRequested").value
+                            let requestedAmount = +e.target.value
+                            getElementUsingId("totalBorrowingAmount").innerHTML = toCurrencyFormat(currentLoan + requestedAmount);
+                        }
+
                     </script>
 
                     <form name="actionForm" id="flowForm" method="post" action="#">
@@ -370,7 +377,7 @@
                                 alt="Click for Further Information" onclick="showInformationBox(this.id);">
                             <label>Borrowing Amount Required&nbsp;<span class="ast">*</span>:</label>
                             £&nbsp;<input type="text" name="requestedLoanAmount" maxlength="18" size="18" value=""
-                                onchange="fieldValueChanged()" onblur="calculateLTV(this.form.name)">
+                                onchange="updateTotalBorrowingAmount()" onblur="calculateLTV(this.form.name)">
                         </div>
                         <div class="element-wrapper">
                             <label>Total Borrowing Amount:</label>
