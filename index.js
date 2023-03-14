@@ -24,6 +24,6 @@ function listDirectories(gitContent) {
 function displayDirElement(dir) {
   const href = document.createElement("a")
   href.textContent = dir.name
-  href.href = `./${dir.path}`
+  href.href = `./${dir.name}`
   document.body.insertAdjacentElement("afterbegin", href)
 }
