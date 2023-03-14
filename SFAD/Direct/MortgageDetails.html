@@ -294,41 +294,11 @@
                             <input type="radio" name="recommended" value="false" checked="checked">
                             <label>No</label>
                         </div>
-                        <div class="radio-wrapper">
-                            <div class="label">Will you be passing any of your commission on to your
-                                client(s)&nbsp;<span class="ast">*</span>:</div>
-                            <input type="radio" name="passingCommissionToClient" value="true"
-                                onclick="toggleField(&#39;commissionPassedToClient&#39;, this.value);">
-                            <label>Yes</label>
-                            <input type="radio" name="passingCommissionToClient" value="false" checked="checked"
-                                onclick="toggleField(&#39;commissionPassedToClient&#39;, this.value);">
-                            <label>No</label>
-                        </div>
-                        <div class="element-wrapper" id="commissionPassedToClient" style="display: none;">
-                            <label>Commission passed on to client&nbsp;<span class="ast">*</span>:</label>
-                            £&nbsp;<input type="text" name="commissionPassedToClient" maxlength="11" size="11" value=""
-                                class="disabled" disabled="">
-                        </div>
-                        <div class="radio-wrapper">
-                            <div class="label">Are you to charge your client(s) a fee?&nbsp;<span class="ast">*</span>:
-                            </div>
-                            <input type="radio" name="chargingFeeToClient" value="true"
-                                onclick="toggleField(&#39;feeChargedToClient&#39;, this.value);">
-                            <label>Yes</label>
-                            <input type="radio" name="chargingFeeToClient" value="false" checked="checked"
-                                onclick="toggleField(&#39;feeChargedToClient&#39;, this.value);">
-                            <label>No</label>
-                        </div>
-                        <div class="element-wrapper" id="feeChargedToClient" style="display: none;">
-                            <label>Fee charged to client&nbsp;<span class="ast">*</span>:</label>
-                            £&nbsp;<input type="text" name="feeChargedToClient" maxlength="11" size="11" value=""
-                                class="disabled" disabled="">
-                        </div>
                         <div class="clear-both"></div>
                         <h4>Mortgage Details</h4>
                         <div class="clear-both"></div>
                         <div class="element-wrapper">
-                            <label>Estimated value of property&nbsp;<span class="ast">*</span>:</label>
+                            <label>Customers estimated value of property&nbsp;<span class="ast">*</span>:</label>
                             £&nbsp;<input type="text" name="propertyValue" maxlength="18" size="18" value="500000"
                                 onblur="calculateLTV(this.form.name)">
                         </div>
@@ -348,7 +318,7 @@
                             <label>Valuation to use for LTV:</label>
                             &nbsp;&nbsp;&nbsp;<select name="valuationSelected" onchange="calculateLTV(this.form.name)">
                                 <option value="0" selected="selected">Use Customer Valuation</option>
-                                <option value="1">Use Halifax Valuation</option>
+                                <option value="1">Use Latest Halifax Valuation</option>
                             </select>
                         </div>
                         <div class="element-wrapper">
@@ -471,13 +441,6 @@
                                 <option value="1">1</option>
                             </select>
                             <span>Month(s)</span>
-                        </div>
-                        <div class="element-wrapper">
-                            <label>Temporary Rates</label>
-                            <img src="./xMortgageDetails/info_sm.gif" id="info-100000010060" class="info-image"
-                                alt="Click for Further Information" onclick="showInformationBox(this.id);">
-                            <input type="hidden" name="_temporaryRates">
-                            &nbsp;&nbsp;<input type="checkbox" name="temporaryRates" value="true">
                         </div>
                         <div class="element-wrapper">
                             <img src="./xMortgageDetails/info_sm.gif" id="info-100000010050" class="info-image"
