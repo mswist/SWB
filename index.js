@@ -14,7 +14,7 @@ async function getDirectoriesFromGit(url) {
 function listDirectories(gitContent) {
   //show only non-hidden folders and html files (except index)
   const directories = gitContent.filter(el => ((
-      el.type == 'dir' && !el.name.startsWith('.')
+      el.type == 'dir' && !el.name.startsWith('_')
     ) || (
       el.type == 'file' && el.name.endsWith('html') && el.name != 'index.html'
     )))
