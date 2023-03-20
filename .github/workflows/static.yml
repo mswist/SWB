@@ -40,8 +40,8 @@ jobs:
         with:
           # Upload entire repository excluding page_processor
           path: |
-            '.'
-            '!./page_processor'
+            .
+            !./page_processor
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
