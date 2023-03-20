@@ -741,14 +741,6 @@
                 <option value="2">2</option>
               </select>
             </div>
-            <div class="radio-wrapper">
-              <img src="./xApplicantInformation/info_sm.gif" id="info-100000011020" class="info-image" alt="Click for Further Information" onclick="showInformationBox(this.id);">
-              <div class="label">Do you intend to use our switching package?&nbsp;<span class="ast">*</span>:</div>
-              <input type="radio" name="useSwitchingPackage" value="true" checked="checked" disabled="disabled">
-              <label>Yes</label>
-              <input type="radio" name="useSwitchingPackage" value="false" disabled="disabled">
-              <label>No</label>
-            </div>
             <div class="clear-both"></div>
             <div id="applicant0" style="display: block;">
               <h3>Applicant&nbsp;1</h3>
@@ -758,7 +750,7 @@
                   <option value=""></option>
                   <option value="5">Dr</option>
                   <option value="3">Miss</option>
-                  <option value="1">Mr</option>
+                  <option value="1" selected>Mr</option>
                   <option value="2">Mrs</option>
                   <option value="4">Ms</option>
                   <option value="0">Prof</option>
@@ -834,33 +826,44 @@
               </div>
               <div class="element-wrapper">
                 <label>First Name&nbsp;<span class="ast">*</span>:</label>
-                <input type="text" name="applicants[0].firstName" maxlength="17" size="20" value="">
+                <input type="text" name="applicants[0].firstName" maxlength="17" size="20" value="John">
               </div>
               <div class="element-wrapper">
                 <label>Middle Name(s)&nbsp;<span class="ast">*</span>:</label>
                 <input type="text" name="applicants[0].middleName" maxlength="17" size="20" value="">
                 <input type="hidden" name="_applicants[0].noMiddleName">
-                <input type="checkbox" name="applicants[0].noMiddleName" value="true" onclick="toggleMiddleName(0);">
+                <input type="checkbox" name="applicants[0].noMiddleName" value="true" checked onclick="toggleMiddleName(0);">
                 <label style="float:none;width:auto;">No Middle Name(s)</label>
               </div>
               <div class="element-wrapper">
                 <label>Surname&nbsp;<span class="ast">*</span>:</label>
-                <input type="text" name="applicants[0].lastName" maxlength="40" size="43" value="">
+                <input type="text" name="applicants[0].lastName" maxlength="40" size="43" value="Mockup">
               </div>
               <div class="element-wrapper">
                 <label>Date of Birth&nbsp;<span class="ast">*</span>:</label>
-                <input type="text" name="applicants[0].dateOfBirth" maxlength="10" size="12" value="">
+                <input type="text" name="applicants[0].dateOfBirth" maxlength="10" size="12" value="01/01/1960">
                 &nbsp;&nbsp;<span class="tagFormat">(dd/mm/yyyy)</span>
               </div>
               <div class="radio-wrapper">
                 <div class="label">Gender&nbsp;<span class="ast">*</span>:</div>
                 <input type="radio" name="applicants[0].gender" value="F">
                 <label>Female</label>
-                <input type="radio" name="applicants[0].gender" value="M">
+                <input type="radio" name="applicants[0].gender" value="M" checked>
                 <label>Male</label>
                 <input type="radio" name="applicants[0].gender" value="X">
                 <label>Other/Unknown</label>
               </div>
+              <div class="element-wrapper">
+                <label>Marital status&nbsp;<span class="ast">*</span>:</label>
+                <select name="applicants[0].status">
+                  <option value=""></option>
+                  <option value="5">Single</option>
+                  <option value="3" selected>Married</option>
+                  <option value="1">Divorced</option>
+                  <option value="2">Widowed</option>
+                  <option value="4">Partnership</option>
+                </select>
+              </div>              
               <div class="clear-both"></div>
             </div>
             <div id="applicant1" style="display:none;">
@@ -974,6 +977,17 @@
                 <input type="radio" name="applicants[1].gender" value="X">
                 <label>Other/Unknown</label>
               </div>
+              <div class="element-wrapper">
+                <label>Marital status&nbsp;<span class="ast">*</span>:</label>
+                <select name="applicants[0].status">
+                  <option value=""></option>
+                  <option value="5">Single</option>
+                  <option value="3" selected>Married</option>
+                  <option value="1">Divorced</option>
+                  <option value="2">Widowed</option>
+                  <option value="4">Partnership</option>
+                </select>
+              </div>                
               <div class="clear-both"></div>
             </div>
             <div id="applicant2" style="display:none;">
