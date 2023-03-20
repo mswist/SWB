@@ -1,5 +1,5 @@
 const PATH = window.location.pathname.replace('/SWB/','')
-const GIT_URL = `https://api.github.com/repos/mswist/SWB/contents/${PATH}`
+const GIT_URL = `https://api.github.com/repos/mswist/SWB/contents/mockups/${PATH}`
 
 getDirectoriesFromGit(GIT_URL)
   .then(resp => { listDirectories(resp) })
