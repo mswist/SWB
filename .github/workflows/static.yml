@@ -38,10 +38,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository excluding page_processor
-          path: |
-            .
-            !./page_processor
+          # Upload mockups folder
+          path: mockups
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
