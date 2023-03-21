@@ -736,7 +736,7 @@
             <div class="element-wrapper">
               <img src="./xApplicantInformation/info_sm.gif" id="info-100000011010" class="info-image" alt="Click for Further Information" onclick="showInformationBox(this.id);">
               <label>Number of Applicants&nbsp;<span class="ast">*</span>:</label>
-              <select name="numberOfApplicants" onchange="toggleApplicants(this.value);">
+              <select disabled name="numberOfApplicants" onchange="toggleApplicants(this.value);">
                 <option value="1" selected="selected">1</option>
                 <option value="2">2</option>
               </select>
@@ -746,7 +746,7 @@
               <h3>Applicant&nbsp;1</h3>
               <div class="element-wrapper">
                 <label>Title&nbsp;<span class="ast">*</span>:</label>
-                <select name="applicants[0].title" onchange="processGender(0, this.options[this.selectedIndex].value);">
+                <select disabled name="applicants[0].title" onchange="processGender(0, this.options[this.selectedIndex].value);">
                   <option value=""></option>
                   <option value="5">Dr</option>
                   <option value="3">Miss</option>
@@ -826,31 +826,31 @@
               </div>
               <div class="element-wrapper">
                 <label>First Name&nbsp;<span class="ast">*</span>:</label>
-                <input type="text" name="applicants[0].firstName" maxlength="17" size="20" value="John">
+                <input disabled type="text" name="applicants[0].firstName" maxlength="17" size="20" value="John">
               </div>
               <div class="element-wrapper">
                 <label>Middle Name(s)&nbsp;<span class="ast">*</span>:</label>
-                <input type="text" name="applicants[0].middleName" maxlength="17" size="20" value="">
+                <input disabled type="text" name="applicants[0].middleName" maxlength="17" size="20" value="">
                 <input type="hidden" name="_applicants[0].noMiddleName">
-                <input type="checkbox" name="applicants[0].noMiddleName" value="true" checked onclick="toggleMiddleName(0);">
+                <input disabled type="checkbox" name="applicants[0].noMiddleName" value="true" checked onclick="toggleMiddleName(0);">
                 <label style="float:none;width:auto;">No Middle Name(s)</label>
               </div>
               <div class="element-wrapper">
                 <label>Surname&nbsp;<span class="ast">*</span>:</label>
-                <input type="text" name="applicants[0].lastName" maxlength="40" size="43" value="Mockup">
+                <input disabled type="text" name="applicants[0].lastName" maxlength="40" size="43" value="Mockup">
               </div>
               <div class="element-wrapper">
                 <label>Date of Birth&nbsp;<span class="ast">*</span>:</label>
-                <input type="text" name="applicants[0].dateOfBirth" maxlength="10" size="12" value="01/01/1960">
+                <input type="text" disabled name="applicants[0].dateOfBirth" maxlength="10" size="12" value="01/01/1960">
                 &nbsp;&nbsp;<span class="tagFormat">(dd/mm/yyyy)</span>
               </div>
               <div class="radio-wrapper">
                 <div class="label">Gender&nbsp;<span class="ast">*</span>:</div>
-                <input type="radio" name="applicants[0].gender" value="F">
+                <input disabled type="radio" name="applicants[0].gender" value="F">
                 <label>Female</label>
-                <input type="radio" name="applicants[0].gender" value="M" checked>
+                <input disabled type="radio" name="applicants[0].gender" value="M" checked>
                 <label>Male</label>
-                <input type="radio" name="applicants[0].gender" value="X">
+                <input disabled type="radio" name="applicants[0].gender" value="X">
                 <label>Other/Unknown</label>
               </div>
               <div class="element-wrapper">
