@@ -279,7 +279,7 @@
                         <div class="element-wrapper">
                             <img src="./xMortgageDetails/info_sm.gif" id="info-100000010010" class="info-image"
                                 alt="Click for Further Information" onclick="alert('Latest available property valuation or customer provided value');">
-                            <label>Estimated value of property&nbsp;<span class="ast">*</span>:</label>
+                            <label>Estimated value of the property&nbsp;<span class="ast">*</span>:</label>
                             £&nbsp;<input type="text" name="propertyValue" maxlength="18" size="18" value="500000"
                                 onblur="calculateLTV(this.form.name)">
                         </div>
@@ -303,11 +303,11 @@
                             </select>
                         </div>
                         <div class="element-wrapper">
-                            <label>Ring Fence Percentage:&nbsp;<span class="ast">*</span>:</label>
+                            <label>What percentage of the current property value do you want to protect (Ring Fence):&nbsp;<span class="ast">*</span>:</label>
                             &nbsp;&nbsp;&nbsp;<input type="text" name="protectedPropValuePerc" maxlength="2" size="5" value="0.00" onblur="calculateLTV(this.form.name)">&nbsp;%
                         </div>
                         <div class="element-wrapper" id="existingLoan">
-                            <label>Ring fenced amount:&nbsp;<span class="ast">*</span>:</label>
+                            <label>Ring Fence Value:&nbsp;<span class="ast">*</span>:</label>
                             £&nbsp;&nbsp;0.00
                         </div>
                         <div class="element-wrapper" id="existingLoan">
@@ -319,7 +319,7 @@
                             £&nbsp;&nbsp;<input type="text" name="currentLoanAmount" class="inputNoBorderSmall" readonly="true" size="10" tabindex="-1" value="250,999.00">
                         </div>
                         <div class="element-wrapper" id="existingLoan">
-                            <label>Resulting LTV Before FADV &nbsp;<span class="ast">*</span>:</label>
+                            <label>Resulting LTV Before Further Advance &nbsp;<span class="ast">*</span>:</label>
                             <input type="text" name="ltv" class="inputNoBorderSmall" readonly="true" size="10" tabindex="-1" value="">
                         </div>
                         <div class="element-wrapper">
@@ -340,7 +340,7 @@
                         <div class="element-wrapper">
                             <img src="./xMortgageDetails/info_sm.gif" id="info-100000010020" class="info-image"
                                 alt="Click for Further Information" onclick="showInformationBox(this.id);">
-                            <label>Resulting LTV after FADV&nbsp;<span class="ast">*</span>:</label>
+                            <label>Resulting LTV after Further Advance&nbsp;<span class="ast">*</span>:</label>
                             <input type="text" name="ltv_r" class="inputNoBorderSmall" readonly="true" size="10" tabindex="-1" value="">
                         </div>
                         <div class="element-wrapper">
