@@ -1,0 +1,24 @@
+:root {
+    --form-element-spacing-vertical: 0.5rem;
+    --form-element-spacing-horizontal: 0.5rem;
+    --font-size: 14px;
+}
+
+body>main {
+    --block-spacing-vertical: var(--spacing);
+}
+
+h1 {
+    --typography-spacing-vertical: 1.5rem
+}
+
+textarea, input {
+    font-size: 0.9rem;
+}
+
+.createMessage {
+    position: fixed;
+    width: 10rem;
+    left: calc(100% - 11rem);
+    top: 1rem;  
+}

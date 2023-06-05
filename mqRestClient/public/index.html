@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <title>Covis simulator</title>
+  </head>
+  <body>
+    <main class="container">
+      <h1>Covis Valuation Result Simulator</h1>
+      <div>
+      <h4>Messages</h4>
+      <table role="grid" id="messages">
+        <thead>
+          <th>Timestamp</th>
+          <th>Message ID</th>
+          <th>Correlation ID</th>
+          <th>Content</t>
+          <th>Acknowledged</th> 
+        </thead>
+        <tbody></tbody>
+      </table>
+      </div>
+      <div>
+      <h4>Acknowledgments</h4>
+      <table role="grid" id="acknowledgments">
+        <thead>
+          <th>Timestamp</th>
+          <th>Message ID</th>
+          <th>Correlation ID</th>
+          <th>Content</t>
+          <th>Matched&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>   
+        </thead>
+        <tbody></tbody>
+      </table>
+      </div>
+    </main>
+    
+<!-- Button to trigger the modal -->
+<button data-target="create-message"  onClick="toggleModal(event)" class="createMessage">
+  Create Message
+</button>    
+      
+<!-- Modal -->
+<dialog id="create-message">
+  <article>
+    <a href="#close"
+      aria-label="Close"
+      class="close"
+      data-target="create-message"
+      onClick="toggleModal(event)">
+    </a>
+    <form action="#" onsubmit="return false;">
+      <input id="correlationId">
+      <textarea cols="80" placeholder="Enter Covis Valuation Result" rows="10"></textarea>
+      <button type="submit" data-target="create-message" id="createMessage" onClick="toggleModal(event)">Submit</button>
+    </form>
+  </article>
+</dialog>
+
+  </body>
+  <script src="./main.js"></script>
+  <script src="./modal.js"></script>
+  <script src="./data.js"></script>
+</html>
