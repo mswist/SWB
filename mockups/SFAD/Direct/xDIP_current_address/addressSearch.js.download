@@ -1,0 +1,192 @@
+	function addressSearchWicket(fields) {
+		var width = 750;
+		var height = 400;
+		var winTop = (screen.height / 2) - width;
+		var winLeft = (screen.width / 2) - height;
+		var windowOptions = "resizable=yes,toolbar=no,scrollbars=yes,location=no,directories=no,status=yes,menubar=no,width=" + width + ",height=" + height;
+		windowOptions = windowOptions + ",left=" + winLeft + ",top=" + winTop + ",screenX=" + winLeft + ",screenY=" + winTop;
+
+		houseNameElement = document.getElementById(fields.houseName);
+		if (houseNameElement != null && houseNameElement.disabled) {
+			return;
+		}
+		flatElement = document.getElementById(fields.flat);
+		if (flatElement != null && flatElement.disabled) {
+			return;
+		}
+		houseNumberElement = document.getElementById(fields.houseNumber);
+		if (houseNumberElement != null && houseNumberElement.disabled) {
+			return;
+		}
+		streetNameElement = document.getElementById(fields.streetName);
+		if (streetNameElement != null && streetNameElement.disabled) {
+			return;
+		}
+		districtElement = document.getElementById(fields.district);
+		if (districtElement != null && districtElement.disabled) {
+			return;
+		}
+		townElement = document.getElementById(fields.town);
+		if (townElement != null && townElement.disabled) {
+			return;
+		}
+		countyElement = document.getElementById(fields.county);
+		if (countyElement != null && countyElement.disabled) {
+			return;
+		}
+		postCodeElement = document.getElementById(fields.postCode);
+		if (postCodeElement != null && postCodeElement.disabled) {
+			return;
+		}
+		addressLine1Element = document.getElementById(fields.addressLine1);
+		if (addressLine1Element != null && addressLine1Element.disabled) {
+			return;
+		}
+		addressLine2Element = document.getElementById(fields.addressLine2);
+		if (addressLine2Element != null && addressLine2Element.disabled) {
+			return;
+		}
+		addressLine3Element = document.getElementById(fields.addressLine3);
+		if (addressLine3Element != null && addressLine3Element.disabled) {
+			return;
+		}
+		addressLine4Element = document.getElementById(fields.addressLine4);
+		if (addressLine4Element != null && addressLine4Element.disabled) {
+			return;
+		}
+		// Build URL
+		var sURL = "../addressSearch.do";
+		if (postCodeElement != null) {
+			sURL = sURL + "?method=search&page=1&searchCriteria=" + postCodeElement.value;
+		}
+		ifaWindow = this.open(sURL, "addressSearchWindow", windowOptions);
+	}
+	
+ function addressSearch(fieldArray) {
+		var width = 750;
+		var height = 400;
+		var winTop = (screen.height / 2) - width;
+		var winLeft = (screen.width / 2) - height;
+		var windowOptions = "resizable=yes,toolbar=no,scrollbars=yes,location=no,directories=no,status=yes,menubar=no,width=" + width + ",height=" + height;
+		windowOptions = windowOptions + ",left=" + winLeft + ",top=" + winTop + ",screenX=" + winLeft + ",screenY=" + winTop;
+
+		houseNameElement = getElementUsingId(fieldArray['houseName']);
+	if (houseNameElement != null && houseNameElement.disabled) {
+		return;
+	}
+	flatElement =getElementUsingId(fieldArray['flat']);
+	if (flatElement != null && flatElement.disabled) {
+		return;
+	}
+	houseNumberElement = getElementUsingId(fieldArray['houseNumber']);
+	if (houseNumberElement != null && houseNumberElement.disabled) {
+		return;
+	}
+	streetNameElement = getElementUsingId(fieldArray['streetName']);
+	if (streetNameElement != null && streetNameElement.disabled) {
+		return;
+	}
+	districtElement = getElementUsingId(fieldArray['district']);
+	if (districtElement != null && districtElement.disabled) {
+		return;
+	}
+	townElement = getElementUsingId(fieldArray['town']);
+	if (townElement != null && townElement.disabled) {
+		return;
+	}
+	countyElement = getElementUsingId(fieldArray['county']);
+	if (countyElement != null && countyElement.disabled) {
+		return;
+	}
+	postCodeElement = getElementUsingId(fieldArray['postCode']);
+	if (postCodeElement != null && postCodeElement.disabled) {
+		return;
+	}
+	addressLine1Element = getElementUsingId(fieldArray['addressLine1']);
+	if (addressLine1Element != null && addressLine1Element.disabled) {
+		return;
+	}
+	addressLine2Element = getElementUsingId(fieldArray['addressLine2']);
+	if (addressLine2Element != null && addressLine2Element.disabled) {
+		return;
+	}
+	addressLine3Element = getElementUsingId(fieldArray['addressLine3']);
+	if (addressLine3Element != null && addressLine3Element.disabled) {
+		return;
+	}
+	addressLine4Element = getElementUsingId(fieldArray['addressLine4']);
+	if (addressLine4Element != null && addressLine4Element.disabled) {
+		return;
+	}
+	countryElement = getElementUsingId(fieldArray['country']);
+	if (countryElement != null && countryElement.disabled) {
+		return;
+	}
+	// Build URL
+	var sURL = "addressSearch.do";
+	if (postCodeElement != null) {
+		sURL = sURL + "?method=search&page=1&searchCriteria=" + postCodeElement.value;
+	}
+	ifaWindow = this.open(sURL, "addressSearchWindow", windowOptions);
+ }
+
+	function getAddress(addressKey) {
+		if (addressKey != null && Trim(addressKey).length > 0) {
+			var xmlhttp = getXmlHttp();
+			var url = "addressSearch.do?method=getAddress&addressKey=" + addressKey;
+			xmlhttp.onreadystatechange = function() {
+				if (xmlhttp.readyState == 4) {
+					if (xmlhttp.status == 200) {
+						var address = JSON.parse(xmlhttp.responseText);
+						returnAddress(address);
+					}
+				}
+			};
+			xmlhttp.open("GET", url, true);
+			xmlhttp.setRequestHeader('Content-Type', 'text/plain');
+			xmlhttp.send(null);
+		}
+	}
+
+function returnAddress(address) {
+	if (window.opener.houseNameElement != null) {
+		window.opener.houseNameElement.value = address.houseName;
+	}
+	if (window.opener.flatElement != null) {
+		window.opener.flatElement.value = address.flat;
+	}
+	if (window.opener.houseNumberElement != null) {
+		window.opener.houseNumberElement.value = address.houseNumber;
+	}
+	if (window.opener.streetNameElement != null) {
+		window.opener.streetNameElement.value = address.streetName;
+	}
+	if (window.opener.districtElement != null) {
+		window.opener.districtElement.value = address.district;
+	}
+	if (window.opener.townElement != null) {		
+		window.opener.townElement.value = address.town;
+	}
+	if (window.opener.countyElement != null) {
+		window.opener.countyElement.value = address.county;
+	}
+	if (window.opener.postCodeElement != null) {
+		window.opener.postCodeElement.value = address.postCode;
+	}
+	if (window.opener.addressLine1Element != null) {
+		window.opener.addressLine1Element.value = address.addressLine1;
+	}
+	if (window.opener.addressLine2Element != null) {
+		window.opener.addressLine2Element.value = address.addressLine2;
+	}
+	if (window.opener.addressLine3Element != null) {
+		window.opener.addressLine3Element.value = address.addressLine3;
+	}
+	if (window.opener.addressLine4Element != null) {
+		window.opener.addressLine4Element.value = address.addressLine4;
+	}
+	if (window.opener.countryElement != null) {
+		window.opener.countryElement.value = 'UK';
+	}
+	this.close();
+}

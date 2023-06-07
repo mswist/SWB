@@ -16,9 +16,23 @@ let visibleModal = null;
 const toggleModal = (event) => {
   event.preventDefault();
   const modal = document.getElementById(event.currentTarget.getAttribute("data-target"));
+  if(event.currentTarget.tagName == "TR") {
+    data = {
+      "msgId": event.currentTarget.cells[1].textContent,
+      "correlationId": event.currentTarget.cells[2].textContent,
+      "msg": event.currentTarget.cells[3].textContent
+    }
+  }
+  else {
+    data = {
+      "msgId": "",
+      "correlationId": newMsg.correlationId,
+      "msg": newMsg.msg
+    }
+  }
   typeof modal != "undefined" && modal != null && isModalOpen(modal)
     ? closeModal(modal)
-    : openModal(modal);
+    : openModal(modal, data);
 };
 
 // Is modal open
@@ -27,7 +41,8 @@ const isModalOpen = (modal) => {
 };
 
 // Open modal
-const openModal = (modal) => {
+const openModal = (modal, data) => {
+  populateModal(modal, data);
   if (isScrollbarVisible()) {
     document.documentElement.style.setProperty("--scrollbar-width", `${getScrollbarWidth()}px`);
   }
@@ -92,3 +107,25 @@ const getScrollbarWidth = () => {
 const isScrollbarVisible = () => {
   return document.body.scrollHeight > screen.height;
 };
+
+const populateModal = ( modal, data ) => {
+    modal.querySelector("textarea").value = data.msg
+    modal.querySelector("#correlationId").value = data.correlationId
+    modal.querySelector("#msgId").value = data.msgId
+    //if msgId is not null, then make all fields read only and hide submit button
+    //otherwise hide msgId field
+    if(data.msgId != "") {
+        modal.querySelector("label[for=msgId]").style.display = "initial"
+        modal.querySelector("#msgId").style.display = "initial"
+        modal.querySelector("textarea").readOnly = true
+        modal.querySelector("#correlationId").readOnly = true
+        modal.querySelector("#createMessage").style.display = "none"
+    }
+    else {
+        modal.querySelector("label[for=msgId]").style.display = "none"
+        modal.querySelector("#msgId").style.display = "none"
+        modal.querySelector("#createMessage").style.display = "initial"
+        modal.querySelector("textarea").readOnly = false
+        modal.querySelector("#correlationId").readOnly = false        
+    }
+}

@@ -53,7 +53,10 @@
       onClick="toggleModal(event)">
     </a>
     <form action="#" onsubmit="return false;">
-      <input id="correlationId">
+      <label for="msgId">Message Id</label> 
+      <input readonly name="msgId" id="msgId">
+      <label for="correlationId">Correlation Id</label> 
+      <input name="correlationId" id="correlationId">
       <textarea cols="80" placeholder="Enter Covis Valuation Result" rows="10"></textarea>
       <button type="submit" data-target="create-message" id="createMessage" onClick="toggleModal(event)">Submit</button>
     </form>

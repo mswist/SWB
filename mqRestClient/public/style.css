@@ -16,9 +16,26 @@ textarea, input {
     font-size: 0.9rem;
 }
 
+dialog label {
+    font-size: smaller;
+    font-weight: 500;
+    color: gray;    
+}
+
 .createMessage {
     position: fixed;
     width: 10rem;
     left: calc(100% - 11rem);
     top: 1rem;  
+}
+
+tbody tr {
+    cursor: pointer;
+}
+
+tr td:nth-child(4) {
+    white-space: nowrap; 
+    text-overflow:ellipsis; 
+    overflow: hidden; 
+    max-width:1px;    
 }

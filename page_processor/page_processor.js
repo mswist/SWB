@@ -1,3 +1,6 @@
+//usage:
+//node page_processor downloaded_html.html target_name (no extension)
+
 // remove first line <!-- saved from url
 // rename file folder - prefix with "x"
 // rename file folder reference in html
